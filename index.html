@@ -33,7 +33,7 @@
     }
     .wrap{max-width:1100px;margin:28px auto;padding:24px}
     header.site-header{display:flex;gap:20px;align-items:center;padding:22px;border-radius:12px;background:var(--card);box-shadow:0 6px 24px rgba(16,24,40,0.06)}
-    .avatar{width:110px;height:110px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:white;font-weight:700;font-size:28px}
+    .avatar{width:110px;height:110px;border-radius:50%;display:block;object-fit:cover;flex-shrink:0;border-radius:50%;} 
     h1{font-size:1.6rem;margin:0}
     .meta{color:var(--muted);font-size:0.95rem}
     .top-links{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
@@ -122,16 +122,13 @@
 
         <section id="research" class="card" style="margin-top:16px">
           <h2 class="section-title">Research Overview</h2>
-          <p class="lead">Current focus: integrating large foundation language models with symbolic planners as well as lower level controls for very data-efficient long-horizon task learning. The agent should learn to solve complex problems using only 1 demonstrations, and few user feedbacks over the agent exploration.
-            I am currently deploying my methods on real industrial robots in collaboration with the Austrian Institute of Technology. We target smooth, expert-free, convenient human-robot interaction for manufacturing tasks.
-          </p>
+          <p class="lead">Current focus: integrating foundation visual-language models with symbolic planners and data-efficient motor primitives to scale from simulation to real machines.</p>
 
           <h3 style="margin-top:12px">Projects</h3>
           <ul>
-            <li><strong>Comparing Vision-Language-Action Models with Neuro-Symbolic Architectures.</li>
-            <li><strong>Foundation Model-Assisted Robot Learning</strong>: automatic symbol & skill discovery from a couple unlabelled demonstrations, directly on a real system.</li>
+            <li><strong>Foundation Model-Assisted Robot Learning</strong>: automatic symbol & skill discovery from demonstrations.</li>
             <li><strong>LLM-Guided Symbolic Planning</strong>: bridging LLMs and symbolic planners for adaptable behaviors.</li>
-            <li><strong>Industrial Deployments</strong>: collaboration with Austrian Institute of Technology for real-machine testing.</li>
+            <li><strong>Industrial Deployments</strong>: collaboration with Austrian Institute of Technology for real-machine trials.</li>
           </ul>
         </section>
 
@@ -177,49 +174,68 @@
 
           <!-- More papers condensed -->
           <div style="margin-top:14px">
-            <details>
-              <summary style="font-weight:700;cursor:pointer">More publications (expand)</summary>
-              <div style="margin-top:10px">
-                <div style="margin-bottom:10px">
-                  <p style="margin:6px 0"><strong>Curiosity-Driven Imagination: Discovering Plan Operators and Learning Associated Policies for Open-World Adaptation</strong> — ICRA 2025 (preprint)</p>
-                  <p class="pub-desc">Adapting quickly to dynamic, uncertain “open world” environments remains a major robotics challenge. We introduce a hybrid planning-and-learning system that pairs a learned stochastic low-level model (trained with an Intrinsic Curiosity Module to drive exploration) with a high-level symbolic planner that captures abstract transitions via operators. The agent plans in an "imaginary" symbolic space to generate reward machines and guide learning. In robotic manipulation tasks subject to sequential novelty injections, this curiosity-driven imagination approach converges faster and outperforms state-of-the-art hybrid TAMP methods, showing superior adaptability and data-efficiency.</p>
-                </div>
 
-                <div style="margin-bottom:10px">
-                  <p style="margin:6px 0"><strong>Adapting to the "Open World": The Utility of Hybrid Hierarchical Reinforcement Learning and Symbolic Planning</strong> — ICRA 2024</p>
-                  <p class="pub-desc">Open-world robotic tasks (e.g., autonomous driving) present unpredictable events that disrupt controllers. Neural RL methods struggle to adapt and suffer from catastrophic forgetting; hybrid planning+RL approaches help but adapt slowly. We propose an enhanced hybrid system with nested hierarchical action abstraction that reuses learned skills across abstraction levels and leverages symbolic planning to select and compose them efficiently. Experiments show faster adaptation, improved generalization, and greater robustness when multiple environmental novelties occur simultaneously, outperforming state-of-the-art RL and hybrid baselines.</p>
-                </div>
-
-                <div style="margin-bottom:10px">
-                  <p style="margin:6px 0"><strong>A Neurosymbolic Cognitive Architecture Framework for Handling Novelties in Open Worlds</strong> — Artificial Intelligence, 2024</p>
-                  <p class="pub-desc">This journal article describes a large-scale neurosymbolic cognitive architecture that combines symbolic planning, counterfactual reasoning, reinforcement learning, and deep vision to detect and accommodate concealed novelties in Minecraft-like environments. The framework enables agents to maintain task performance despite unseen changes and is evaluated extensively on diverse novelty scenarios.</p>
-                </div>
-
-                <div style="margin-bottom:10px">
-                  <p style="margin:6px 0"><strong>Speeding-up Continual Learning Through Information Gains in Novel Experiences</strong> — PRL Workshop at IJCAI-2022</p>
-                  <p class="pub-desc">We introduce an information-gain-based signal to prioritize learning from novel experiences and speed up continual learning. By estimating the information contribution of unexpected transitions, agents focus updates on experiences that maximize learning progress and reduce catastrophic forgetting. Empirical results in simulated continual-learning scenarios show faster adaptation and improved retention compared to standard continual-RL baselines.</p>
-                </div>
-
-                <hr />
-
-                <div style="margin-top:10px">
-                  <p style="margin:6px 0"><strong>Comparing the Cost and Performance of Vision-Language-Action Models Against Classical Neuro-Symbolic Approaches</strong> — Adv. Robotics Research Journal, Under Review (2026)</p>
-                  <p class="pub-desc">There is much excitement around Vision-Language-Action (VLA) models, but their suitability for structured, long-horizon robotic tasks remains unclear — especially given the large training and inference energy costs. This manuscript provides a rigorous empirical evaluation comparing a fine-tuned OpenPI VLA with a neuro-symbolic architecture that combines PDDL-based symbolic planning and diffusion-model controllers. Using a custom Towers-of-Hanoi benchmark in Robosuite, we measure success rate, training/fine-tuning time, inference time, and energy consumption across task variants. Results indicate that neuro-symbolic approaches achieve substantially higher task success while consuming orders-of-magnitude less energy, suggesting that energy-efficient symbolic methods remain critical for robotic applications.</p>
-                </div>
-
-                <div style="margin-top:10px">
-                  <p style="margin:6px 0"><strong>Neuro-Symbolic Epistemic Agents for POMDP-Based Task Planning</strong> — ICAPS, Under Review (2026)</p>
-                  <p class="pub-desc">We propose a neurosymbolic epistemic planning framework for POMDP-based task planning that integrates epistemic operators with reinforcement-learning-driven belief updates. The system discovers epistemic operators, maintains compact belief-state abstractions, and uses symbolic planning to guide targeted exploration and disambiguation under uncertainty. Experiments in multi-object manipulation POMDPs show improved sample efficiency and more robust task completion compared to baselines that lack explicit epistemic reasoning.</p>
-                </div>
-
-                <div style="margin-top:10px">
-                  <p style="margin:6px 0"><strong>Build on Priors: Distilling Knowledge from Controls and Foundation Models for Efficient and Adaptive Neuro-Symbolic Architectures</strong> — IEEE RA-L, Under Review (2026)</p>
-                  <p class="pub-desc">We present a hierarchical knowledge-distillation pipeline for neurosymbolic robotics that leverages priors from multiple layers: high-level symbolic reasoning, transformer-based perception, and low-level motion planners/controllers. By distilling these heterogeneous sources into compact neurosymbolic modules, the approach accelerates learning on real robots, improves adaptability, and preserves interpretability while benefiting from foundation-model perceptual features and established control policies.</p>
-                </div>
-
+              <div style="margin-bottom:10px">
+                <p style="margin:6px 0"><strong>Curiosity-Driven Imagination: Discovering Plan Operators and Learning Associated Policies for Open-World Adaptation</strong> — ICRA 2025 (preprint)</p>
+                <p class="pub-desc">Adapting quickly to dynamic, uncertain “open world” environments remains a major robotics challenge. We introduce a hybrid planning-and-learning system that pairs a learned stochastic low-level model (trained with an Intrinsic Curiosity Module to drive exploration) with a high-level symbolic planner that captures abstract transitions via operators. The agent plans in an "imaginary" symbolic space to generate reward machines and guide learning. In robotic manipulation tasks subject to sequential novelty injections, this curiosity-driven imagination approach converges faster and outperforms state-of-the-art hybrid TAMP methods, showing superior adaptability and data-efficiency.</p>
               </div>
-            </details>
-          </div>
+
+              <div style="margin-bottom:10px">
+                <p style="margin:6px 0"><strong>Adapting to the "Open World": The Utility of Hybrid Hierarchical Reinforcement Learning and Symbolic Planning</strong> — ICRA 2024</p>
+                <p class="pub-desc">Open-world robotic tasks (e.g., autonomous driving) present unpredictable events that disrupt controllers. Neural RL methods struggle to adapt and suffer from catastrophic forgetting; hybrid planning+RL approaches help but adapt slowly. We propose an enhanced hybrid system with nested hierarchical action abstraction that reuses learned skills across abstraction levels and leverages symbolic planning to select and compose them efficiently. Experiments show faster adaptation, improved generalization, and greater robustness when multiple environmental novelties occur simultaneously, outperforming state-of-the-art RL and hybrid baselines.</p>
+              </div>
+
+              <div style="margin-bottom:10px">
+                <p style="margin:6px 0"><strong>A Neurosymbolic Cognitive Architecture Framework for Handling Novelties in Open Worlds</strong> — Artificial Intelligence, 2024</p>
+                <p class="pub-desc">This journal article describes a large-scale neurosymbolic cognitive architecture that combines symbolic planning, counterfactual reasoning, reinforcement learning, and deep vision to detect and accommodate concealed novelties in Minecraft-like environments. The framework enables agents to maintain task performance despite unseen changes and is evaluated extensively on diverse novelty scenarios.</p>
+              </div>
+
+              <div style="margin-bottom:10px">
+                <p style="margin:6px 0"><strong>Speeding-up Continual Learning Through Information Gains in Novel Experiences</strong> — PRL Workshop at IJCAI-2022</p>
+                <p class="pub-desc">We introduce an information-gain-based signal to prioritize learning from novel experiences and speed up continual learning. By estimating the information contribution of unexpected transitions, agents focus updates on experiences that maximize learning progress and reduce catastrophic forgetting. Empirical results in simulated continual-learning scenarios show faster adaptation and improved retention compared to standard continual-RL baselines.</p>
+              </div>
+
+              <hr />
+
+              <div style="margin-top:10px">
+                <p style="margin:6px 0"><strong>Comparing the Cost and Performance of Vision-Language-Action Models Against Classical Neuro-Symbolic Approaches</strong> — Adv. Robotics Research Journal, Under Review (2026)</p>
+                <p class="pub-desc">There is much excitement around Vision-Language-Action (VLA) models, but their suitability for structured, long-horizon robotic tasks remains unclear — especially given the large training and inference energy costs. This manuscript provides a rigorous empirical evaluation comparing a fine-tuned OpenPI VLA with a neuro-symbolic architecture that combines PDDL-based symbolic planning and diffusion-model controllers. Using a custom Towers-of-Hanoi benchmark in Robosuite, we measure success rate, training/fine-tuning time, inference time, and energy consumption across task variants. Results indicate that neuro-symbolic approaches achieve substantially higher task success while consuming orders-of-magnitude less energy, suggesting that energy-efficient symbolic methods remain critical for robotic applications.</p>
+              </div>
+
+              <div style="margin-top:10px">
+                <p style="margin:6px 0"><strong>Neuro-Symbolic Epistemic Agents for POMDP-Based Task Planning</strong> — ICAPS, Under Review (2026)</p>
+                <p class="pub-desc">We propose a neurosymbolic epistemic planning framework for POMDP-based task planning that integrates epistemic operators with reinforcement-learning-driven belief updates. The system discovers epistemic operators, maintains compact belief-state abstractions, and uses symbolic planning to guide targeted exploration and disambiguation under uncertainty. Experiments in multi-object manipulation POMDPs show improved sample efficiency and more robust task completion compared to baselines that lack explicit epistemic reasoning.</p>
+              </div>
+
+              <div style="margin-top:10px">
+                <p style="margin:6px 0"><strong>Build on Priors: Distilling Knowledge from Controls and Foundation Models for Efficient and Adaptive Neuro-Symbolic Architectures</strong> — IEEE RA-L, Under Review (2026)</p>
+                <p class="pub-desc">We present a hierarchical knowledge-distillation pipeline for neurosymbolic robotics that leverages priors from multiple layers: high-level symbolic reasoning, transformer-based perception, and low-level motion planners/controllers. By distilling these heterogeneous sources into compact neurosymbolic modules, the approach accelerates learning on real robots, improves adaptability, and preserves interpretability while benefiting from foundation-model perceptual features and established control policies.</p>
+              </div>
+
+              <hr />
+
+              <!-- Co-author / collaborative works -->
+              <div style="margin-top:12px">
+                <p style="margin:6px 0"><strong>A neurosymbolic cognitive architecture framework for handling novelties in open worlds</strong> — Artificial Intelligence (Goel et al.), 2024</p>
+                <p class="pub-desc">A large-scale study presenting a neurosymbolic cognitive architecture combining symbolic planning, counterfactual reasoning, RL, and deep vision to detect and accommodate novelties in Minecraft-like environments. Demonstrates robust task performance under concealed novelties.</p>
+              </div>
+
+              <div style="margin-top:12px">
+                <p style="margin:6px 0"><strong>Integrating LLMs and Classical Planning for Pallet Logistics: A Case Study</strong> — IFAC, 2026</p>
+                <p class="pub-desc">Evaluation of LLMs as planners in a pallet logistics PDDL domain, proposing a hybrid pipeline where LLMs translate language into goal definitions and classical planners ensure executable, optimal plans.</p>
+              </div>
+
+              <div style="margin-top:12px">
+                <p style="margin:6px 0"><strong>Novelty Adaptation Through Hybrid LLM-Symbolic Planning and LLM-Guided RL</strong> — ICRA, Under Review (2026)</p>
+                <p class="pub-desc">A neurosymbolic system where an LLM proposes missing operators and reward scaffolds; symbolic planning generates plans while RL learns low-level controllers for newly discovered operators, showing improved novelty accommodation in tabletop manipulation domains.</p>
+              </div>
+
+              <div style="margin-top:12px">
+                <p style="margin:6px 0"><strong>Understanding and Explaining Vision-Language-Action Models Through Probing</strong> — In Preparation (2026)</p>
+                <p class="pub-desc">Probing OpenVLA representations to extract symbolic object and action states for integration into cognitive architectures. Experiments on LIBERO-spatial tasks show high probing accuracies and enable an integrated DIARC-OpenVLA system for interpretable real-time monitoring.</p>
+              </div>
+
+            </div>
         </section>
 
         <section id="media" class="card" style="margin-top:16px">
