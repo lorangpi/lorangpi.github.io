@@ -1,452 +1,260 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pierrick Lorang - Research</title>
-    <meta name="description" content="Pierrick Lorang - Ph.D. Candidate in Neuro-Symbolic Robotics, Reinforcement Learning, and Open-World AI">
-    <meta name="keywords" content="robotics, AI, neuro-symbolic, reinforcement learning, Pierrick Lorang">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            background: white;
-            padding: 40px 0;
-            margin-bottom: 40px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .profile-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 48px;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-        
-        .header-text {
-            flex: 1;
-        }
-        
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-        }
-        
-        .subtitle {
-            color: #7f8c8d;
-            font-size: 1.2em;
-            margin-bottom: 15px;
-        }
-        
-        .links {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-        
-        .links a {
-            color: #3498db;
-            text-decoration: none;
-            padding: 8px 15px;
-            border: 2px solid #3498db;
-            border-radius: 5px;
-            transition: all 0.3s;
-            font-size: 0.9em;
-        }
-        
-        .links a:hover {
-            background: #3498db;
-            color: white;
-        }
-        
-        nav {
-            background: white;
-            padding: 15px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        nav a {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: #3498db;
-        }
-        
-        section {
-            background: white;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #3498db;
-        }
-        
-        h3 {
-            color: #34495e;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-        
-        .publication {
-            margin-bottom: 25px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 5px;
-            border-left: 4px solid #3498db;
-        }
-        
-        .publication-title {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 5px;
-            font-size: 1.05em;
-        }
-        
-        .publication-authors {
-            color: #555;
-            margin-bottom: 5px;
-        }
-        
-        .publication-venue {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 8px;
-        }
-        
-        .publication-links {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .pub-link {
-            color: #3498db;
-            text-decoration: none;
-            font-size: 0.9em;
-            padding: 4px 10px;
-            border: 1px solid #3498db;
-            border-radius: 3px;
-            transition: all 0.3s;
-        }
-        
-        .pub-link:hover {
-            background: #3498db;
-            color: white;
-        }
-        
-        .research-interest {
-            background: #e8f4f8;
-            padding: 10px 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border-left: 4px solid #3498db;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #7f8c8d;
-            background: white;
-            margin-top: 40px;
-            border-radius: 8px;
-        }
-        
-        .year-section {
-            margin-bottom: 30px;
-        }
-        
-        .badge {
-            display: inline-block;
-            padding: 3px 8px;
-            background: #e74c3c;
-            color: white;
-            border-radius: 3px;
-            font-size: 0.8em;
-            margin-left: 5px;
-        }
-        
-        .badge.submitted {
-            background: #f39c12;
-        }
-        
-        .badge.accepted {
-            background: #27ae60;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pierrick Lorang — Research</title>
+  <meta name="description" content="Pierrick Lorang — Neuro-Symbolic Robotics, HRI, RL. Tufts University & Austrian Institute of Technology." />
+  <meta property="og:title" content="Pierrick Lorang — Research" />
+  <meta property="og:description" content="Neuro-symbolic robotics, few-shot imitation, continual learning, and foundation-model assisted robot learning." />
+  <meta name="author" content="Pierrick Lorang" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #f5f7fa;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --accent-2: #7c3aed;
+      --text: #0f172a;
+      --glass: rgba(255,255,255,0.6);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg,var(--bg) 0%, #eef2f6 100%);
+      color:var(--text);
+      margin:0;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+    .wrap{max-width:1100px;margin:28px auto;padding:24px}
+    header.site-header{display:flex;gap:20px;align-items:center;padding:22px;border-radius:12px;background:var(--card);box-shadow:0 6px 24px rgba(16,24,40,0.06)}
+    .avatar{width:110px;height:110px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:white;font-weight:700;font-size:28px}
+    h1{font-size:1.6rem;margin:0}
+    .meta{color:var(--muted);font-size:0.95rem}
+    .top-links{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;font-weight:600;text-decoration:none;border:1px solid transparent}
+    .btn.ghost{background:transparent;border:1px solid rgba(16,24,40,0.06);color:var(--text)}
+    .btn.primary{background:var(--accent);color:white}
 
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
+    nav{margin-top:18px;background:transparent}
+    nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--accent)}
+
+    main{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:18px}
+    @media (max-width:1000px){main{grid-template-columns:1fr}}
+
+    section.card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(16,24,40,0.04)}
+    h2.section-title{font-size:1.1rem;margin:0 0 8px}
+    p.lead{color:var(--muted);margin-bottom:12px}
+
+    .research-list{display:grid;gap:10px}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#f3f4f6;color:var(--muted);font-weight:600;font-size:0.85rem}
+
+    .pub{padding:14px;border-radius:10px;background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid rgba(37,99,235,0.06);display:flex;gap:12px;align-items:flex-start}
+    .pub .meta-block{flex:1}
+    .pub h3{margin:0;font-size:1rem}
+    .pub .byline{color:var(--muted);font-size:0.9rem;margin-top:6px}
+    .pub .venue{color:var(--muted);font-style:italic;margin-top:8px}
+    .pub .actions{display:flex;gap:8px;margin-top:10px}
+    .pub .actions a{font-weight:600;text-decoration:none;padding:6px 8px;border-radius:8px;border:1px solid rgba(37,99,235,0.08)}
+
+    .media-grid{display:flex;gap:10px;margin-top:12px}
+    .media-grid img{width:220px;height:120px;object-fit:cover;border-radius:8px;border:1px solid rgba(15,23,42,0.04)}
+
+    aside.sidebar .card{margin-bottom:12px}
+    .resources a{display:block;color:var(--accent);text-decoration:none;font-weight:600;margin-bottom:8px}
+
+    footer{margin-top:22px;text-align:center;color:var(--muted);font-size:0.9rem}
+
+    /* small helper */
+    .badge{display:inline-block;padding:4px 8px;border-radius:6px;font-weight:700;font-size:0.78rem}
+    .badge.published{background:#ecfdf5;color:#065f46;border:1px solid rgba(6,95,70,0.06)}
+    .badge.accepted{background:#eff6ff;color:#1e3a8a;border:1px solid rgba(30,58,138,0.06)}
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="profile-photo">PL</div>
-                <div class="header-text">
-                    <h1>Pierrick Lorang</h1>
-                    <p class="subtitle">Ph.D. Candidate in Mechanical Engineering & Human-Robot Interaction</p>
-                    <p>Tufts University & Austrian Institute of Technology</p>
-                    <div class="links">
-                        <a href="mailto:pierrick.lorang@gmail.com">Email</a>
-                        <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Google Scholar</a>
-                        <a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a>
-                        <a href="https://linkedin.com/in/pierrick-lorang" target="_blank">LinkedIn</a>
-                        <a href="cv.pdf" target="_blank">CV (PDF)</a>
-                    </div>
-                </div>
-            </div>
+  <div class="wrap">
+    <header class="site-header">
+      <div class="avatar">PL</div>
+      <div style="flex:1">
+        <h1>Pierrick Lorang</h1>
+        <div class="meta">Ph.D. Candidate — Mechanical Engineering & Human-Robot Interaction<br>Tufts University & Austrian Institute of Technology</div>
+        <div class="top-links">
+          <a class="btn primary" href="mailto:pierrick.lorang@gmail.com">Email</a>
+          <a class="btn ghost" href="cv.pdf" target="_blank">CV (PDF)</a>
+          <a class="btn ghost" href="https://github.com/lorangpi" target="_blank">GitHub</a>
+          <a class="btn ghost" href="https://scholar.google.com/citations?user=fuj2TwsAAAAJ&hl" target="_blank">Google Scholar</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/pierrick-lorang-099423159/" target="_blank">LinkedIn</a>
         </div>
+      </div>
     </header>
 
-    <div class="container">
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#media">Media</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-        <section id="about">
-            <h2>About</h2>
-            <p>I am a Ph.D. candidate at Tufts University and the Austrian Institute of Technology, working under the supervision of Professor Matthias Scheutz. My research focuses on developing neuro-symbolic architectures that enable robots to learn, adapt, and operate robustly in open-world environments characterized by novelty and unpredictability.</p>
-            
-            <p>My work bridges symbolic reasoning and continuous control, combining the interpretability of symbolic systems with the adaptability of neural models. I aim to enable robots to perform long-horizon tasks with minimal data, adapt continuously to unseen conditions, and scale from simulation to real-world industrial applications.</p>
-            
-            <h3>Research Interests</h3>
-            <div class="research-interest">🤖 Neuro-Symbolic AI for Robotics</div>
-            <div class="research-interest">🧠 Hierarchical Reinforcement Learning</div>
-            <div class="research-interest">🌍 Open-World Learning & Continual Adaptation</div>
-            <div class="research-interest">👥 Few-Shot Imitation Learning</div>
-            <div class="research-interest">🔍 Foundation Models for Robotics</div>
+    <main>
+      <div>
+        <section id="about" class="card">
+          <h2 class="section-title">About</h2>
+          <p class="lead">I develop neuro-symbolic architectures for robots that enable few-shot imitation, long-horizon planning, and continual adaptation in open-world environments. My research sits at the intersection of symbolic reasoning, deep learning, and control.</p>
+
+          <div class="research-list">
+            <div class="chip">Neuro-Symbolic AI</div>
+            <div class="chip">Few-Shot Imitation</div>
+            <div class="chip">Hierarchical RL</div>
+            <div class="chip">Continual Learning</div>
+            <div class="chip">Foundation Models for Robotics</div>
+          </div>
         </section>
 
-        <section id="research">
-            <h2>Research Overview</h2>
-            
-            <h3>Current Projects</h3>
-            <p><strong>Foundation Model-Assisted Robot Learning:</strong> Developing expert-free frameworks that use vision-language models to automatically discover symbolic task structures and motor skills from human demonstrations on real robotic systems.</p>
-            
-            <p><strong>LLM-Guided Symbolic Planning:</strong> Integrating large language models with classical symbolic planners and reinforcement learning for adaptive robot behavior in novel situations.</p>
-            
-            <p><strong>Industrial Applications:</strong> Deploying neuro-symbolic systems on autonomous forklifts and robotic arms in collaboration with the Austrian Institute of Technology.</p>
+        <section id="research" class="card" style="margin-top:16px">
+          <h2 class="section-title">Research Overview</h2>
+          <p class="lead">Current focus: integrating foundation visual-language models with symbolic planners and data-efficient motor primitives to scale from simulation to real machines.</p>
+
+          <h3 style="margin-top:12px">Projects</h3>
+          <ul>
+            <li><strong>Foundation Model-Assisted Robot Learning</strong>: automatic symbol & skill discovery from demonstrations.</li>
+            <li><strong>LLM-Guided Symbolic Planning</strong>: bridging LLMs and symbolic planners for adaptable behaviors.</li>
+            <li><strong>Industrial Deployments</strong>: collaboration with Austrian Institute of Technology for real-machine trials.</li>
+          </ul>
         </section>
 
-        <section id="publications">
-            <h2>Publications</h2>
-            
-            <div class="year-section">
-                <h3>2026 <span class="badge submitted">Submitted/Under Review</span></h3>
-                
-                <div class="publication">
-                    <div class="publication-title">Build on Priors: Distilling Knowledge from Controls and Foundation Models for Efficient and Adaptive Neuro-Symbolic Architectures</div>
-                    <div class="publication-authors"><strong>Pierrick Lorang</strong>, Hong Lu, Matthias Scheutz</div>
-                    <div class="publication-venue">IEEE Robotics and Automation Letters (RA-L), Under Review</div>
-                    <div class="publication-links">
-                        <a href="#" class="pub-link">PDF</a>
-                        <a href="#" class="pub-link">Code</a>
-                    </div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">Expert-Free, Data-Efficient Symbol and Skill Discovery for Long-Horizon Robot Tasks</div>
-                    <div class="publication-authors"><strong>Pierrick Lorang</strong>, Hong Lu, Tim Duggan, Johannes Huemer, Patrik Zips, Matthias Scheutz</div>
-                    <div class="publication-venue">Under Review</div>
-                    <div class="publication-links">
-                        <a href="#" class="pub-link">PDF</a>
-                    </div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">Novelty Adaptation Through Hybrid Large Language Model-Symbolic Planning and LLM-Guided Reinforcement Learning</div>
-                    <div class="publication-authors">Hong Lu, <strong>Pierrick Lorang</strong>, Matthias Scheutz</div>
-                    <div class="publication-venue">IEEE ICRA, Submitted</div>
-                    <div class="publication-links">
-                        <a href="#" class="pub-link">PDF</a>
-                    </div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">Comparing the Cost and Performance of Vision-Language-Action Models Against Classical Neuro-Symbolic Approaches</div>
-                    <div class="publication-authors">Tim Duggan, <strong>Pierrick Lorang</strong>, Hong Lu, Matthias Scheutz</div>
-                    <div class="publication-venue">Advanced Robotics Research Journal, Submitted</div>
-                    <div class="publication-links">
-                        <a href="#" class="pub-link">PDF</a>
-                    </div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">Understanding and Explaining Vision-Language-Action Models Through Probing</div>
-                    <div class="publication-authors">Hong Lu, <strong>Pierrick Lorang</strong>, Matthias Scheutz</div>
-                    <div class="publication-venue">In Preparation</div>
-                </div>
+        <section id="publications" class="card" style="margin-top:16px">
+          <h2 class="section-title">Selected Publications</h2>
+
+          <!-- CoRL 2025 -->
+          <article class="pub" aria-labelledby="corl-title">
+            <div class="meta-block">
+              <h3 id="corl-title">Few-Shot Neuro-Symbolic Imitation Learning for Long-Horizon Planning and Acting <span class="badge published">CoRL 2025</span></h3>
+              <div class="byline">Pierrick Lorang, Hong Lu, Johannes Huemer, Patrik Zips, Matthias Scheutz</div>
+              <div class="venue">Conference on Robot Learning (CoRL), 2025</div>
+              <div class="actions">
+                <a href="#">PDF</a>
+                <a href="#">Code</a>
+                <a href="#">Video</a>
+              </div>
+
+              <p class="pub-desc">Imitation learning enables intelligent systems to acquire complex behaviors with minimal supervision, but existing methods often target short-horizon skills, require large datasets, and fail to generalize under distribution shifts. We propose a n<div class="media-grid" style="margin-top:10px">
+                <!-- GIF placeholders: put these exact filenames into your repo at assets/ -->
+                <img src="assets/corl_fewshot_demo1.gif" alt="CoRL demo 1: few-shot imitation" />
+                <img src="assets/corl_fewshot_demo2.gif" alt="CoRL demo 2: planning" />
+              </div>
             </div>
-            
-            <div class="year-section">
-                <h3>2025 <span class="badge accepted">Published</span></h3>
-                
-                <div class="publication">
-                    <div class="publication-title">Few-Shot Neuro-Symbolic Imitation Learning for Long-Horizon Planning and Acting</div>
-                    <div class="publication-authors"><strong>Pierrick Lorang</strong>, Hong Lu, Johannes Huemer, Patrik Zips, Matthias Scheutz</div>
-                    <div class="publication-venue">Conference on Robot Learning (CoRL), 2025</div>
-                    <div class="publication-links">
-                        <a href="#" class="pub-link">PDF</a>
-                        <a href="#" class="pub-link">arXiv</a>
-                        <a href="#" class="pub-link">Code</a>
-                        <a href="#" class="pub-link">Video</a>
-                    </div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">Curiosity-Driven Imagination: Discovering Plan Operators and Learning Associated Policies for Open-World Adaptation</div>
-                    <div class="publication-authors"><strong>Pierrick Lorang</strong>, Hong Lu, Matthias Scheutz</div>
-                    <div class="publication-venue">IEEE International Conference on Robotics and Automation (ICRA), 2025</div>
-                    <div class="publication-links">
-                        <a href="https://arxiv.org/abs/2503.04931" class="pub-link">PDF</a>
-                        <a href="#" class="pub-link">Code</a>
-                    </div>
-                </div>
+          </article>
+
+          <!-- IROS 2024 -->
+          <article class="pub" style="margin-top:12px" aria-labelledby="iros-title">
+            <div class="meta-block">
+              <h3 id="iros-title">A Framework for Neurosymbolic Goal-Conditioned Continual Learning in Open World Environments <span class="badge accepted">IROS 2024</span></h3>
+              <div class="byline">Pierrick Lorang, Shivam Goel, Yash Shukla, et al.</div>
+              <div class="venue">IEEE/RSJ IROS, 2024</div>
+              <div class="actions">
+                <a href="#">PDF</a>
+                <a href="#">Code</a>
+              </div>
+
+              <p class="pub-desc">This IROS paper presents a neurosymbolic continual-learning architecture that integrates symbolic goal inference with reinforcement learning to adapt autonomously to sequential and abrupt novelties. The system uses planner-guided goal identification and online adaptation mechanisms to recover from previously unseen changes without human intervention. Evaluations in dynamic manipulation environments show faster recovery, improved long-horizon performance, and greater robustness compared to standard RL and prior hybrid methods.</p><div class="media-grid" style="margin-top:10px">
+                <img src="assets/iros_continual_demo.gif" alt="IROS demo: continual learning" />
+              </div>
             </div>
-            
-            <div class="year-section">
-                <h3>2024</h3>
-                
-                <div class="publication">
-                    <div class="publication-title">A Framework for Neurosymbolic Goal-Conditioned Continual Learning in Open World Environments</div>
-                    <div class="publication-authors"><strong>Pierrick Lorang</strong>, Shivam Goel, Yash Shukla, Patrik Zips, Matthias Scheutz</div>
-                    <div class="publication-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), pp. 12070-12077, 2024</div>
-                    <div class="publication-links">
-                        <a href="#" class="pub-link">PDF</a>
-                        <a href="#" class="pub-link">Code</a>
-                    </div>
+          </article>
+
+          <!-- More papers condensed -->
+          <div style="margin-top:14px">
+            <details>
+              <summary style="font-weight:700;cursor:pointer">More publications (expand)</summary>
+              <div style="margin-top:10px">
+                <div style="margin-bottom:10px">
+                  <p style="margin:6px 0"><strong>Curiosity-Driven Imagination: Discovering Plan Operators and Learning Associated Policies for Open-World Adaptation</strong> — ICRA 2025 (preprint)</p>
+                  <p class="pub-desc">This work presents a hybrid architecture that jointly learns stochastic world models and symbolic plan operators to enable rapid adaptation in open-world settings. An intrinsic curiosity module drives exploration of novel transitions while a symbolic planner constructs "imaginary" high-level trajectories and generated reward machines. Sequential novelty-injection experiments in robotic manipulation domains demonstrate faster convergence and stronger resilience than state-of-the-art hybrid TAMP approaches.</p>
                 </div>
-                
-                <div class="publication">
-                    <div class="publication-title">Adapting to the "Open World": The Utility of Hybrid Hierarchical Reinforcement Learning and Symbolic Planning</div>
-                    <div class="publication-authors"><strong>Pierrick Lorang</strong>, Helmut Horvath, Tobias Kietreiber, Patrik Zips, Clemens Heitzinger, Matthias Scheutz</div>
-                    <div class="publication-venue">IEEE International Conference on Robotics and Automation (ICRA), pp. 508-514, 2024</div>
-                    <div class="publication-links">
-                        <a href="#" class="pub-link">PDF</a>
-                        <a href="#" class="pub-link">Code</a>
-                    </div>
+
+                <div style="margin-bottom:10px">
+                  <p style="margin:6px 0"><strong>Adapting to the "Open World": The Utility of Hybrid Hierarchical Reinforcement Learning and Symbolic Planning</strong> — ICRA 2024</p>
+                  <p class="pub-desc">This ICRA contribution introduces a nested hierarchical action abstraction combined with symbolic planning to accelerate adaptation when multiple environmental novelties occur. By reusing previously learned skills at different abstraction levels and guiding their selection through symbolic reasoning, the method achieves faster adaptation and improved stability compared to standard RL and hybrid baselines in multi-novelty scenarios.</p>
                 </div>
-                
-                <div class="publication">
-                    <div class="publication-title">A Neurosymbolic Cognitive Architecture Framework for Handling Novelties in Open Worlds</div>
-                    <div class="publication-authors">Shivam Goel, Panagiotis Lymperopoulos, Ravenna Thielstrom, Evan Krause, Patrick Feeney, <strong>Pierrick Lorang</strong>, et al.</div>
-                    <div class="publication-venue">Artificial Intelligence, Vol. 331, pp. 104111, Elsevier, 2024</div>
-                    <div class="publication-links">
-                        <a href="#" class="pub-link">PDF</a>
-                    </div>
+
+                <div style="margin-bottom:10px">
+                  <p style="margin:6px 0"><strong>A Neurosymbolic Cognitive Architecture Framework for Handling Novelties in Open Worlds</strong> — Artificial Intelligence, 2024</p>
+                  <p class="pub-desc">This journal article describes a large-scale neurosymbolic cognitive architecture that combines symbolic planning, counterfactual reasoning, reinforcement learning, and deep vision to detect and accommodate concealed novelties in Minecraft-like environments. The framework enables agents to maintain task performance despite unseen changes and is evaluated extensively on diverse novelty scenarios.</p>
                 </div>
-            </div>
-            
-            <div class="year-section">
-                <h3>2022</h3>
-                
-                <div class="publication">
-                    <div class="publication-title">Speeding-Up Continual Learning Through Information Gains in Novel Experiences</div>
-                    <div class="publication-authors"><strong>Pierrick Lorang</strong>, Shivam Goel, Patrik Zips, Jivko Sinapov, Matthias Scheutz</div>
-                    <div class="publication-venue">4th Planning and Reinforcement Learning Workshop at IJCAI-2022</div>
-                    <div class="publication-links">
-                        <a href="#" class="pub-link">PDF</a>
-                    </div>
+
+                <div style="margin-bottom:10px">
+                  <p style="margin:6px 0"><strong>Speeding-up Continual Learning Through Information Gains in Novel Experiences</strong> — PRL Workshop at IJCAI-2022</p>
+                  <p class="pub-desc">This workshop paper proposes an information-theoretic prioritization signal to accelerate continual learning when agents encounter novel transitions. By focusing updates on experiences that provide the largest information gain, agents reduce catastrophic forgetting and adapt more quickly than standard continual-RL baselines.</p>
                 </div>
-            </div>
+
+                <hr />
+
+                <div style="margin-top:10px">
+                  <p style="margin:6px 0"><strong>Comparing the Cost and Performance of Vision-Language-Action Models Against Classical Neuro-Symbolic Approaches</strong> — Adv. Robotics Research Journal, Under Review (2026)</p>
+                  <p class="pub-desc">Under review, this manuscript presents a rigorous empirical comparison between a fine-tuned OpenPI VLA model and a neuro-symbolic pipeline that couples PDDL planning with diffusion-based low-level controllers. Using a custom Towers-of-Hanoi benchmark in Robosuite, we measure task success, training and inference time, and energy consumption. Results show neurosymbolic approaches achieve higher task success and dramatically better energy efficiency (orders of magnitude), arguing for continued pursuit of energy-efficient symbolic alternatives in robotics.</p>
+                </div>
+
+                <div style="margin-top:10px">
+                  <p style="margin:6px 0"><strong>Neuro-Symbolic Epistemic Agents for POMDP-Based Task Planning</strong> — ICAPS, Under Review (2026)</p>
+                  <p class="pub-desc">This under-review work introduces an epistemic planning framework that integrates symbolic epistemic operators with RL-driven belief updates to handle partial observability. The architecture discovers epistemic operators and adapts belief-state abstractions to guide exploration and disambiguation in POMDP manipulation tasks, improving sample efficiency and robustness under uncertainty.</p>
+                </div>
+
+                <div style="margin-top:10px">
+                  <p style="margin:6px 0"><strong>Build on Priors: Distilling Knowledge from Controls and Foundation Models for Efficient and Adaptive Neuro-Symbolic Architectures</strong> — IEEE RA-L, Under Review (2026)</p>
+                  <p class="pub-desc">This RA-L submission proposes a hierarchical distillation pipeline that fuses priors from symbolic reasoning, transformer-based perception, and low-level motion controllers. By distilling knowledge across these layers into compact neurosymbolic components, the approach improves sample efficiency and real-robot adaptability while retaining interpretability.</p>
+                </div>
+
+              </div>
+            </details>
+          </div>
         </section>
 
-        <section id="news">
-            <h2>News</h2>
-            <ul style="list-style-position: inside;">
-                <li><strong>Nov 2025:</strong> Finalizing experiments for real-machine automation framework</li>
-                <li><strong>Aug 2025:</strong> Paper accepted to CoRL 2025</li>
-                <li><strong>Mar 2025:</strong> Paper accepted to ICRA 2025</li>
-                <li><strong>Oct 2024:</strong> Paper accepted to IROS 2024</li>
-            </ul>
+        <section id="media" class="card" style="margin-top:16px">
+          <h2 class="section-title">Media & Resources</h2>
+          <p class="lead">Downloadable artifacts (place these files in the repository root or the assets/ folder):</p>
+          <div class="resources">
+            <!-- CSV link + dummy PDF name requested by user -->
+            <a href="results.csv" download>Download results.csv</a>
+            <a href="results_summary.pdf" target="_blank">Results summary (results_summary.pdf)</a>
+
+            <a href="#">Project video</a>
+            <a href="#">Supplementary materials</a>
+          </div>
         </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p><strong>Email:</strong> pierrick.lorang@gmail.com | pierrick.lorang@tufts.edu</p>
-            <p><strong>Office:</strong> Tufts University, Medford, MA & Austrian Institute of Technology, Vienna, Austria</p>
-            <p><strong>Phone:</strong> +33 769 109 816</p>
-        </section>
-    </div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="card">
+          <h2 class="section-title">Contact</h2>
+          <p class="meta">pierrick.lorang@gmail.com<br>Tufts University, Medford, MA & Austrian Institute of Technology, Vienna, Austria</p>
+          <p class="meta">+33 769 109 816</p>
+        </div>
+
+        <div class="card">
+          <h2 class="section-title">Quick Links</h2>
+          <a href="cv.pdf" target="_blank">CV (PDF)</a>
+          <a href="assets/corl_fewshot_demo1.gif">CoRL GIF 1</a>
+          <a href="assets/corl_fewshot_demo2.gif">CoRL GIF 2</a>
+          <a href="assets/iros_continual_demo.gif">IROS GIF</a>
+        </div>
+
+      </aside>
+    </main>
 
     <footer>
-        <p>&copy; 2025 Pierrick Lorang. Last updated: November 2025</p>
+      <small>© 2025 Pierrick Lorang — Last updated: November 2025</small>
     </footer>
+  </div>
 </body>
 </html>
