@@ -81,7 +81,7 @@
 <body>
   <div class="wrap">
     <header class="site-header">
-      <img src="assets/profile.JPG" alt="Pierrick Lorang" class="avatar" />
+      <img src="assets/profile.jpg" alt="Pierrick Lorang" class="avatar" />
       <div style="flex:1">
         <h1>Pierrick Lorang</h1>
         <div class="meta">Ph.D. Candidate — Mechanical Engineering & Human-Robot Interaction<br>Tufts University & Austrian Institute of Technology</div>
@@ -147,9 +147,8 @@
               <div class="byline">Pierrick Lorang, Hong Lu, Johannes Huemer, Patrik Zips, Matthias Scheutz</div>
               <div class="venue">Conference on Robot Learning (CoRL), 2025</div>
               <div class="actions">
-                <a href="#">PDF</a>
-                <a href="#">Code</a>
-                <a href="#">Video</a>
+                <a href="https://arxiv.org/abs/2508.21501">PDF</a>
+                <a href="https://www.youtube.com/watch?v=E8slaN81oAA&t=6s">Video</a>
               </div>
 
               <p class="pub-desc">Imitation learning enables intelligent systems to acquire complex behaviors with minimal supervision, but existing methods often target short-horizon skills, require large datasets, and fail to generalize under distribution shifts. We propose a novel neuro-symbolic framework that jointly learns continuous control policies and symbolic domain abstractions from a handful of skill demonstrations. The method constructs a graph-based task abstraction, discovers symbolic rules using an Answer Set Programming solver, and trains diffusion-policy controllers for low-level actions. A high-level oracle filters task-relevant information to keep each controller focused on a minimal observation-action set. This graph-based abstraction captures non-spatial and temporal relations that clustering or purely data-driven techniques miss in limited-data regimes. We validate across six domains — multi-arm manipulation, stacking, kitchen, assembly, Towers of Hanoi, and an automated-forklift domain — demonstrating high data-efficiency (as few as five demonstrations), strong zero- and few-shot generalization, and interpretable decision-making.</p><div class="media-grid" style="margin-top:10px">
@@ -167,8 +166,7 @@
               <div class="byline">Pierrick Lorang, Shivam Goel, Yash Shukla, et al.</div>
               <div class="venue">IEEE/RSJ IROS, 2024</div>
               <div class="actions">
-                <a href="#">PDF</a>
-                <a href="#">Code</a>
+                <a href="https://ieeexplore.ieee.org/abstract/document/10801627">PDF</a>
               </div>
 
               <p class="pub-desc">In dynamic open-world environments, agents face sudden and unpredictable novelties that hinder Task and Motion Planning. We propose a TAMP architecture that tightly integrates symbolic planning with reinforcement learning to enable autonomous adaptation without human guidance. The approach uses symbolic goal representations within a goal-conditioned learning framework and employs planner-guided goal identification to handle abrupt changes where traditional RL and re-planning fail. Sequential novelty-injection experiments demonstrate faster convergence and more robust long-horizon performance compared to standard baselines, illustrating the method's practical utility for real-world robotic systems.</p><div class="media-grid" style="margin-top:10px">
@@ -183,21 +181,33 @@
               <div style="margin-bottom:10px">
                 <p style="margin:6px 0"><strong>Curiosity-Driven Imagination: Discovering Plan Operators and Learning Associated Policies for Open-World Adaptation</strong> — ICRA 2025 (preprint)</p>
                 <p class="pub-desc">Adapting quickly to dynamic, uncertain “open world” environments remains a major robotics challenge. We introduce a hybrid planning-and-learning system that pairs a learned stochastic low-level model (trained with an Intrinsic Curiosity Module to drive exploration) with a high-level symbolic planner that captures abstract transitions via operators. The agent plans in an "imaginary" symbolic space to generate reward machines and guide learning. In robotic manipulation tasks subject to sequential novelty injections, this curiosity-driven imagination approach converges faster and outperforms state-of-the-art hybrid TAMP methods, showing superior adaptability and data-efficiency.</p>
+                    <div class="actions">
+                        <a href="https://arxiv.org/abs/2503.04931">PDF</a>
+                    </div>
               </div>
 
               <div style="margin-bottom:10px">
                 <p style="margin:6px 0"><strong>Adapting to the "Open World": The Utility of Hybrid Hierarchical Reinforcement Learning and Symbolic Planning</strong> — ICRA 2024</p>
                 <p class="pub-desc">Open-world robotic tasks (e.g., autonomous driving) present unpredictable events that disrupt controllers. Neural RL methods struggle to adapt and suffer from catastrophic forgetting; hybrid planning+RL approaches help but adapt slowly. We propose an enhanced hybrid system with nested hierarchical action abstraction that reuses learned skills across abstraction levels and leverages symbolic planning to select and compose them efficiently. Experiments show faster adaptation, improved generalization, and greater robustness when multiple environmental novelties occur simultaneously, outperforming state-of-the-art RL and hybrid baselines.</p>
+                    <div class="actions">
+                        <a href="https://ieeexplore.ieee.org/abstract/document/10611594">PDF</a>
+                    </div>
               </div>
 
               <div style="margin-bottom:10px">
                 <p style="margin:6px 0"><strong>A Neurosymbolic Cognitive Architecture Framework for Handling Novelties in Open Worlds</strong> — Artificial Intelligence, 2024</p>
                 <p class="pub-desc">This journal article describes a large-scale neurosymbolic cognitive architecture that combines symbolic planning, counterfactual reasoning, reinforcement learning, and deep vision to detect and accommodate concealed novelties in Minecraft-like environments. The framework enables agents to maintain task performance despite unseen changes and is evaluated extensively on diverse novelty scenarios.</p>
+                    <div class="actions">
+                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S000437022400047X">PDF</a>
+                    </div>
               </div>
 
               <div style="margin-bottom:10px">
                 <p style="margin:6px 0"><strong>Speeding-up Continual Learning Through Information Gains in Novel Experiences</strong> — PRL Workshop at IJCAI-2022</p>
                 <p class="pub-desc">We introduce an information-gain-based signal to prioritize learning from novel experiences and speed up continual learning. By estimating the information contribution of unexpected transitions, agents focus updates on experiences that maximize learning progress and reduce catastrophic forgetting. Empirical results in simulated continual-learning scenarios show faster adaptation and improved retention compared to standard continual-RL baselines.</p>
+                    <div class="actions">
+                        <a href="https://prl-theworkshop.github.io/prl2022-ijcai/papers/PRL2022_paper_26.pdf">PDF</a>
+                    </div>
               </div>
 
               <hr />
@@ -219,15 +229,12 @@
 
               <hr />
 
-              <!-- Co-author / collaborative works -->
-              <div style="margin-top:12px">
-                <p style="margin:6px 0"><strong>A neurosymbolic cognitive architecture framework for handling novelties in open worlds</strong> — Artificial Intelligence (Goel et al.), 2024</p>
-                <p class="pub-desc">A large-scale study presenting a neurosymbolic cognitive architecture combining symbolic planning, counterfactual reasoning, RL, and deep vision to detect and accommodate novelties in Minecraft-like environments. Demonstrates robust task performance under concealed novelties.</p>
-              </div>
-
               <div style="margin-top:12px">
                 <p style="margin:6px 0"><strong>Integrating LLMs and Classical Planning for Pallet Logistics: A Case Study</strong> — IFAC, 2026</p>
                 <p class="pub-desc">Evaluation of LLMs as planners in a pallet logistics PDDL domain, proposing a hybrid pipeline where LLMs translate language into goal definitions and classical planners ensure executable, optimal plans.</p>
+                    <div class="actions">
+                        <a href="https://www.sciencedirect.com/science/article/pii/S2405896325016362">PDF</a>
+                    </div>
               </div>
 
               <div style="margin-top:12px">
@@ -243,18 +250,6 @@
             </div>
         </section>
 
-        <section id="media" class="card" style="margin-top:16px">
-          <h2 class="section-title">Media & Resources</h2>
-          <p class="lead">Downloadable artifacts (place these files in the repository root or the assets/ folder):</p>
-          <div class="resources">
-            <!-- CSV link + dummy PDF name requested by user -->
-            <a href="results.csv" download>Download results.csv</a>
-            <a href="results_summary.pdf" target="_blank">Results summary (results_summary.pdf)</a>
-
-            <a href="#">Project video</a>
-            <a href="#">Supplementary materials</a>
-          </div>
-        </section>
 
       </div>
 
