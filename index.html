@@ -46,7 +46,7 @@
     nav a{color:var(--muted);text-decoration:none;font-weight:600}
     nav a:hover{color:var(--accent)}
 
-    main{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:18px}
+    main{display:block;gap:22px;margin-top:18px}
     @media (max-width:1000px){main{grid-template-columns:1fr}}
 
     section.card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(16,24,40,0.04)}
@@ -65,7 +65,7 @@
     .pub .actions a{font-weight:600;text-decoration:none;padding:6px 8px;border-radius:8px;border:1px solid rgba(37,99,235,0.08)}
 
     .media-grid{display:flex;gap:10px;margin-top:12px}
-    .media-grid img{width:220px;height:120px;object-fit:cover;border-radius:8px;border:1px solid rgba(15,23,42,0.04)}
+    .media-grid img{width:440px;height:240px;object-fit:cover;border-radius:8px;border:1px solid rgba(15,23,42,0.04)}
 
     aside.sidebar .card{margin-bottom:12px}
     .resources a{display:block;color:var(--accent);text-decoration:none;font-weight:600;margin-bottom:8px}
@@ -81,7 +81,7 @@
 <body>
   <div class="wrap">
     <header class="site-header">
-      <img src="assets/profile.jpg" alt="Pierrick Lorang" class="avatar" />
+      <img src="assets/profile.JPG" alt="Pierrick Lorang" class="avatar" />
       <div style="flex:1">
         <h1>Pierrick Lorang</h1>
         <div class="meta">Ph.D. Candidate — Mechanical Engineering & Human-Robot Interaction<br>Tufts University & Austrian Institute of Technology</div>
@@ -91,6 +91,11 @@
           <a class="btn ghost" href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a>
           <a class="btn ghost" href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Google Scholar</a>
           <a class="btn ghost" href="https://linkedin.com/in/pierrick-lorang" target="_blank">LinkedIn</a>
+        </div>
+        <div style="margin-top:12px;color:var(--muted);font-size:0.95rem;">
+          <strong>Email:</strong> pierrick.lorang@gmail.com<br>
+          <strong>Office:</strong> Tufts University, Medford, MA & Austrian Institute of Technology, Vienna, Austria<br>
+          <strong>Phone:</strong> +33 769 109 816
         </div>
       </div>
     </header>
@@ -238,17 +243,22 @@
             </div>
         </section>
 
+        <section id="media" class="card" style="margin-top:16px">
+          <h2 class="section-title">Media & Resources</h2>
+          <p class="lead">Downloadable artifacts (place these files in the repository root or the assets/ folder):</p>
+          <div class="resources">
+            <!-- CSV link + dummy PDF name requested by user -->
+            <a href="results.csv" download>Download results.csv</a>
+            <a href="results_summary.pdf" target="_blank">Results summary (results_summary.pdf)</a>
+
+            <a href="#">Project video</a>
+            <a href="#">Supplementary materials</a>
+          </div>
+        </section>
+
       </div>
 
-      <aside class="sidebar">
-        <div class="card">
-          <h2 class="section-title">Contact</h2>
-          <p class="meta">pierrick.lorang@gmail.com<br>Tufts University, Medford, MA & Austrian Institute of Technology, Vienna, Austria</p>
-          <p class="meta">+33 769 109 816</p>
-        </div>
-
-      </aside>
-    </main>
+      </main>
 
     <footer>
       <small>© 2025 Pierrick Lorang — Last updated: November 2025</small>
