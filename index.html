@@ -126,21 +126,36 @@
         </section>
 
         <section id="research" class="card" style="margin-top:16px">
-          <h2 class="section-title">Research Overview</h2>
-          <p class="lead">Current focus: integrating foundation visual-language models with symbolic planners and data-efficient motor primitives to scale from simulation to real machines.</p>
+            <h2 class="section-title">Research Overview</h2>
+            <p class="lead">Current focus: integrating foundation visual-language models with symbolic planners and data-efficient motor primitives to scale from simulation to real machines.</p>
 
-          <h3 style="margin-top:12px">Projects</h3>
-          <ul>
-            <li><strong>Foundation Model-Assisted Robot Learning</strong>: automatic symbol & skill discovery from demonstrations.</li>
-            <li><strong>LLM-Guided Symbolic Planning</strong>: bridging LLMs and symbolic planners for adaptable behaviors.</li>
-            <li><strong>Industrial Deployments</strong>: collaboration with Austrian Institute of Technology for real-machine trials.</li>
-          </ul>
-        <!-- GIF placeholders: put these exact filenames into your repo at assets/ -->
-        <img src="assets/eggplant1.gif" alt="Frontview: Cook the eggplant" />
-        <img src="assets/eggplant2.gif" alt="Agentview: Cook the eggplant" />
-        <img src="assets/table1.gif" alt="Frontview: Clean the table" />
-        <img src="assets/table2.gif" alt="Agentview: Clean the table" />
+            <h3 style="margin-top:12px">Projects</h3>
+            <ul>
+                <li><strong>Foundation Model-Assisted Robot Learning</strong>: automatic symbol & skill discovery from demonstrations.</li>
+                <li><strong>LLM-Guided Symbolic Planning</strong>: bridging LLMs and symbolic planners for adaptable behaviors.</li>
+                <li><strong>Industrial Deployments</strong>: collaboration with Austrian Institute of Technology for real-machine trials.</li>
+            </ul>
+            <p style="margin-top:10px">
+                Demonstration of a neuro-symbolic agent learning to
+                <em>cook an eggplant</em> and <em>clean a table</em> from
+                one-shot demonstrations by building on priors from foundation models and control policies.
+                The agent distills knowledge from a VLM to detect objects and actions, abstracts trajectory
+                checkpoints, reprojects them to novel objects via control policies, imitates low-level actions
+                using diffusion-based learning, and discovers symbolic operators and task abstractions via a
+                satisfiability solver.
+            </p>
+
+            <div class="media-grid">
+                <img src="assets/eggplant1.gif" alt="Front view of the agent cooking an eggplant" />
+                <img src="assets/eggplant2.gif" alt="Agent view of the agent cooking an eggplant" />
+            </div>
+
+            <div class="media-grid" style="margin-top:10px">
+                <img src="assets/table1.gif" alt="Front view of the agent cleaning a table" />
+                <img src="assets/table2.gif" alt="Agent view of the agent cleaning a table" />
+            </div>
         </section>
+
 
         <section id="publications" class="card" style="margin-top:16px">
           <h2 class="section-title">Selected Publications</h2>
