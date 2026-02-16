@@ -746,6 +746,80 @@
             </div>
           </div>
         </div>
+
+        <!-- Video Showcase 4: VLA -->
+        <div class="video-showcase">
+          <h3 class="video-showcase-title">Vision Language Action Model OpenPi 0.5 solving long-horizon tasks</h3>
+          <p class="video-showcase-description">
+            Demonstration of OpenPi 0.5, a Vision Language Action Model that integrates a task planner and a VLM to solve long-horizon tasks in Mujoco-based Simulator. 
+            The VLA was fine-tuned on 50 task demonstrations, it is able to solve long-horizon tasks from one high level task prompt. Comprehensive evaluation show that the VLA
+            still struggle with long-horizon tasks notably when the states are randomized.
+          </p>
+          
+          <div class="video-grid">
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/OpenPi05-VLA-3BlocksTowersOfHanoi.mp4.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">OpenPi 0.5 solving 3-block Towers of Hanoi</div>
+            </div>
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/OpenPi05-VLA-3ColorsSorting.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">OpenPi 0.5 solving 3-color sorting task</div>
+            </div>
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/OpenPi05-VLA-4BlocksStacking.mp4.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">OpenPi 0.5 solving 4-block stacking task</div>
+            </div>
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/OpenPi05-VLA-4BlocksTowersOfHanoi.mp4.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">OpenPi 0.5 solving 4-block Towers of Hanoi task</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Showcase 5: NSM Generalization on Complex Long-horizon tasks -->
+        <div class="video-showcase">
+          <h3 class="video-showcase-title">NeuroSymbolic approach 0-shot transfer to complex long-horizon tasks</h3>
+          <p class="video-showcase-description">
+            Demonstration of a neuro-symbolic agent that learns to solve complex long-horizon tasks from as little as 5 demonstrations of stacking to solve complex 
+            tasks such as 3-block Towers of Hanoi. The agent discovers symbolic operators and task abstractions using a satisfiability solver, and learns low-level control policies using diffusion-based learning. The agent is able to generalize to novel tasks and objects and solves the 4-block Towers of Hanoi task without any additional training, it shows robustness to out of distribution scenarios due to its symbolic replanning capabilities as well as strong generalization from diffusion policies.
+          </p>
+          
+          <div class="video-grid">
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/OpenPi05-VLA-3BlocksTowersOfHanoi.mp4.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">OpenPi 0.5 solving 3-block Towers of Hanoi</div>
+            </div>
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/OpenPi05-VLA-3ColorsSorting.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">OpenPi 0.5 solving 3-color sorting task</div>
+            </div>
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/OpenPi05-VLA-4BlocksStacking.mp4.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">OpenPi 0.5 solving 4-block stacking task</div>
+            </div>
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/OpenPi05-VLA-4BlocksTowersOfHanoi.mp4.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">OpenPi 0.5 solving 4-block Towers of Hanoi task</div>
+            </div>
+          </div>
+        </div>
+
       </section>
 
       <!-- Publications Section -->
