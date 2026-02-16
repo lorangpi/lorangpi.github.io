@@ -8,317 +8,1061 @@
   <meta property="og:title" content="Pierrick Lorang — Research" />
   <meta property="og:description" content="Neuro-symbolic robotics, few-shot imitation, continual learning, and foundation-model assisted robot learning." />
   <meta name="author" content="Pierrick Lorang" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg: #f5f7fa;
-      --card: #ffffff;
-      --muted: #6b7280;
-      --accent: #2563eb;
-      --accent-2: #7c3aed;
-      --text: #0f172a;
-      --glass: rgba(255,255,255,0.6);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: linear-gradient(180deg,var(--bg) 0%, #eef2f6 100%);
-      color:var(--text);
-      margin:0;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
-    }
-    .wrap{max-width:1100px;margin:28px auto;padding:24px}
-    header.site-header{display:flex;gap:20px;align-items:center;padding:22px;border-radius:12px;background:var(--card);box-shadow:0 6px 24px rgba(16,24,40,0.06)}
-    .avatar{width:110px;height:110px;border-radius:50%;display:block;object-fit:cover;flex-shrink:0;border-radius:50%;} 
-    h1{font-size:1.6rem;margin:0}
-    .meta{color:var(--muted);font-size:0.95rem}
-    .top-links{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:8px 12px;border-radius:8px;font-weight:600;text-decoration:none;border:1px solid transparent}
-    .btn.ghost{background:transparent;border:1px solid rgba(16,24,40,0.06);color:var(--text)}
-    .btn.primary{background:var(--accent);color:white}
-
-    nav{margin-top:18px;background:transparent}
-    nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0}
-    nav a{color:var(--muted);text-decoration:none;font-weight:600}
-    nav a:hover{color:var(--accent)}
-
-    main{display:block;gap:22px;margin-top:18px}
-    @media (max-width:1000px){main{grid-template-columns:1fr}}
-
-    section.card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(16,24,40,0.04)}
-    h2.section-title{font-size:1.1rem;margin:0 0 8px}
-    p.lead{color:var(--muted);margin-bottom:12px}
-
-    .research-list{display:grid;gap:10px}
-    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:#f3f4f6;color:var(--muted);font-weight:600;font-size:0.85rem}
-
-    .pub{padding:14px;border-radius:10px;background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid rgba(37,99,235,0.06);display:flex;gap:12px;align-items:flex-start}
-    .pub .meta-block{flex:1}
-    .pub h3{margin:0;font-size:1rem}
-    .pub .byline{color:var(--muted);font-size:0.9rem;margin-top:6px}
-    .pub .venue{color:var(--muted);font-style:italic;margin-top:8px}
-    .pub .actions{display:flex;gap:8px;margin-top:10px}
-    .pub .actions a{font-weight:600;text-decoration:none;padding:6px 8px;border-radius:8px;border:1px solid rgba(37,99,235,0.08)}
-
-    .media-grid{display:flex;gap:10px;margin-top:12px}
-    .media-grid img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 6px;
-    }
-    .media-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-        margin-top: 10px;
+    :root {
+      --bg-primary: #0a0e14;
+      --bg-secondary: #141922;
+      --bg-tertiary: #1d2432;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-primary: #e8edf4;
+      --text-secondary: #a0aec0;
+      --text-muted: #6b7a90;
+      --accent-blue: #60a5fa;
+      --accent-cyan: #22d3ee;
+      --accent-purple: #a78bfa;
+      --accent-amber: #fbbf24;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
     }
 
-    .media-grid video {
-        width: 100%;
-        height: auto;
-        border-radius: 6px;
-        object-fit: contain;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
 
-    aside.sidebar .card{margin-bottom:12px}
-    .resources a{display:block;color:var(--accent);text-decoration:none;font-weight:600;margin-bottom:8px}
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-    footer{margin-top:22px;text-align:center;color:var(--muted);font-size:0.9rem}
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-    /* small helper */
-    .badge{display:inline-block;padding:4px 8px;border-radius:6px;font-weight:700;font-size:0.78rem}
-    .badge.published{background:#ecfdf5;color:#065f46;border:1px solid rgba(6,95,70,0.06)}
-    .badge.accepted{background:#eff6ff;color:#1e3a8a;border:1px solid rgba(30,58,138,0.06)}
+    /* Header Section */
+    header {
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+      border-bottom: 1px solid var(--card-border);
+      padding: 48px 0;
+      margin-bottom: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(96, 165, 250, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(167, 139, 250, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .header-content {
+      position: relative;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--card-border);
+      box-shadow: var(--shadow-lg);
+      flex-shrink: 0;
+    }
+
+    .header-info {
+      flex: 1;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .header-affiliation {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .header-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(96, 165, 250, 0.4);
+    }
+
+    .btn-secondary {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-primary);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
+      padding: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-info strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(20, 25, 34, 0.95);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      padding: 20px 0;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-blue);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Main Content */
+    main {
+      padding: 48px 0;
+    }
+
+    section {
+      margin-bottom: 64px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 32px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow-md);
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--text-primary);
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      margin-top: 32px;
+      color: var(--text-primary);
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    /* Research Chips */
+    .research-chips {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(96, 165, 250, 0.15), rgba(34, 211, 238, 0.15));
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      color: var(--accent-cyan);
+      font-weight: 600;
+      font-size: 0.85rem;
+      font-family: 'IBM Plex Mono', monospace;
+      transition: all 0.2s ease;
+    }
+
+    .chip:hover {
+      background: linear-gradient(135deg, rgba(96, 165, 250, 0.25), rgba(34, 211, 238, 0.25));
+      transform: translateY(-2px);
+    }
+
+    /* Video Grid */
+    .video-showcase {
+      margin: 40px 0;
+      padding: 32px;
+      background: linear-gradient(135deg, rgba(96, 165, 250, 0.05), rgba(167, 139, 250, 0.05));
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+    }
+
+    .video-showcase-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .video-showcase-description {
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .video-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--card-border);
+      transition: all 0.3s ease;
+    }
+
+    .video-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(96, 165, 250, 0.3);
+    }
+
+    .video-item video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .video-caption {
+      padding: 16px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Publications */
+    .publication {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .publication:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(96, 165, 250, 0.3);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pub-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      font-family: 'IBM Plex Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-published {
+      background: rgba(34, 211, 238, 0.15);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(34, 211, 238, 0.3);
+    }
+
+    .badge-accepted {
+      background: rgba(96, 165, 250, 0.15);
+      color: var(--accent-blue);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+    }
+
+    .badge-preprint {
+      background: rgba(251, 191, 36, 0.15);
+      color: var(--accent-amber);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+    }
+
+    .badge-review {
+      background: rgba(167, 139, 250, 0.15);
+      color: var(--accent-purple);
+      border: 1px solid rgba(167, 139, 250, 0.3);
+    }
+
+    .pub-authors {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    .pub-venue {
+      color: var(--text-muted);
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .pub-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin: 16px 0;
+    }
+
+    .pub-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .pub-link {
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: rgba(96, 165, 250, 0.1);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .pub-link:hover {
+      background: rgba(96, 165, 250, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .pub-video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .pub-video-grid video {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+    }
+
+    /* Compact Publications */
+    .pub-compact {
+      padding: 20px;
+      margin-bottom: 16px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .pub-compact .pub-title {
+      font-size: 1rem;
+    }
+
+    .pub-compact .pub-description {
+      font-size: 0.9rem;
+      margin: 12px 0;
+    }
+
+    /* Section Divider */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--card-border), transparent);
+      margin: 48px 0;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 48px 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--card-border);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card, .publication {
+      animation: fadeInUp 0.6s ease-out;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header class="site-header">
-      <img src="assets/profile.jpg" alt="Pierrick Lorang" class="avatar" />
-      <div style="flex:1">
-        <h1>Pierrick Lorang</h1>
-        <div class="meta">Ph.D. Candidate — Mechanical Engineering & Human-Robot Interaction<br>Tufts University & Austrian Institute of Technology</div>
-        <div class="top-links">
-          <a class="btn primary" href="mailto:pierrick.lorang@gmail.com">Email</a>
-          <a class="btn ghost" href="assets/cv.pdf" target="_blank">CV (PDF)</a>
-          <a class="btn ghost" href="https://github.com/lorangpi" target="_blank">GitHub</a>
-          <a class="btn ghost" href="https://scholar.google.com/citations?user=fuj2TwsAAAAJ&hl=fr" target="_blank">Google Scholar</a>
-          <a class="btn ghost" href="https://www.linkedin.com/in/pierrick-lorang-099423159/" target="_blank">LinkedIn</a>
-        </div>
-        <div style="margin-top:12px;color:var(--muted);font-size:0.95rem;">
-          <strong>Email:</strong> pierrick.lorang@gmail.com<br>
-          <strong>Laboratories:</strong> Human-Robot Interaction @ Tufts University, Medford, MA & Complex Dynamical Systems @ the Austrian Institute of Technology, Vienna, Austria<br>
-          <strong>Phone:</strong> +33 769 109 816
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <img src="assets/profile.jpg" alt="Pierrick Lorang" class="avatar" />
+        <div class="header-info">
+          <h1>Pierrick Lorang</h1>
+          <div class="header-subtitle">Ph.D. Candidate — Mechanical Engineering & Human-Robot Interaction</div>
+          <div class="header-affiliation">Tufts University & Austrian Institute of Technology</div>
+          
+          <div class="header-links">
+            <a class="btn btn-primary" href="mailto:pierrick.lorang@gmail.com">✉ Email</a>
+            <a class="btn btn-secondary" href="assets/cv.pdf" target="_blank">📄 CV</a>
+            <a class="btn btn-secondary" href="https://github.com/lorangpi" target="_blank">GitHub</a>
+            <a class="btn btn-secondary" href="https://scholar.google.com/citations?user=fuj2TwsAAAAJ&hl=fr" target="_blank">Google Scholar</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/pierrick-lorang-099423159/" target="_blank">LinkedIn</a>
+          </div>
+
+          <div class="contact-info">
+            <div><strong>Email:</strong> pierrick.lorang@gmail.com</div>
+            <div><strong>Phone:</strong> +33 769 109 816</div>
+            <div><strong>Lab:</strong> Human-Robot Interaction @ Tufts, Medford, MA</div>
+            <div><strong>Institute:</strong> Complex Dynamical Systems @ AIT, Vienna, Austria</div>
+          </div>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <nav>
+  <nav>
+    <div class="container">
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#research">Research</a></li>
         <li><a href="#publications">Publications</a></li>
-        <li><a href="#media">Media</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-    </nav>
+    </div>
+  </nav>
 
-    <main>
-      <div>
-        <section id="about" class="card">
-          <h2 class="section-title">About</h2>
+  <main>
+    <div class="container">
+      
+      <!-- About Section -->
+      <section id="about">
+        <div class="card">
+          <h2>About</h2>
           <p class="lead">I develop neuro-symbolic architectures for robots that enable few-shot imitation, long-horizon planning, and continual adaptation in open-world environments. My research sits at the intersection of symbolic reasoning, deep learning, and control.</p>
 
-          <div class="research-list">
-            <div class="chip">Neuro-Symbolic AI</div>
-            <div class="chip">Few-Shot Imitation</div>
-            <div class="chip">Hierarchical RL</div>
-            <div class="chip">Continual Learning</div>
-            <div class="chip">Foundation Models for Robotics</div>
+          <div class="research-chips">
+            <span class="chip">Neuro-Symbolic AI</span>
+            <span class="chip">Few-Shot Imitation</span>
+            <span class="chip">Hierarchical RL</span>
+            <span class="chip">Continual Learning</span>
+            <span class="chip">Foundation Models for Robotics</span>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="research" class="card" style="margin-top:16px">
-            <h2 class="section-title">Research Overview</h2>
+      <!-- Research Section -->
+      <section id="research">
+        <h2>Research Overview</h2>
 
-            <p class="lead">
-                Current focus: integrating foundation visual-language models with symbolic planners
-                and data-efficient motor primitives to scale from simulation to real machines.
-            </p>
+        <div class="card">
+          <p class="lead">
+            Current focus: integrating foundation visual-language models with symbolic planners
+            and data-efficient motor primitives to scale from simulation to real machines.
+          </p>
 
-            <h3 style="margin-top:12px">Projects</h3>
-            <ul>
-                <li><strong>Foundation Model-Assisted Robot Learning</strong>:
-                    automatic symbol and skill discovery from demonstrations.</li>
-                <li><strong>LLM-Guided Symbolic Planning</strong>:
-                    bridging LLMs and symbolic planners for adaptable behaviors.</li>
-                <li><strong>Industrial Deployments</strong>:
-                    collaboration with the Austrian Institute of Technology for real-machine trials on a large forklift for pallets management in a warehouse like environment (the real system is not shown here).</li>
-            </ul>
+          <h3>Key Projects</h3>
+          <ul style="color: var(--text-secondary); line-height: 1.8;">
+            <li><strong style="color: var(--text-primary);">Foundation Model-Assisted Robot Learning:</strong>
+                automatic symbol and skill discovery from demonstrations.</li>
+            <li><strong style="color: var(--text-primary);">LLM-Guided Symbolic Planning:</strong>
+                bridging LLMs and symbolic planners for adaptable behaviors.</li>
+            <li><strong style="color: var(--text-primary);">Industrial Deployments:</strong>
+                collaboration with the Austrian Institute of Technology for real-machine trials on a large forklift for pallets management in a warehouse-like environment (the real system is not shown here).</li>
+          </ul>
+        </div>
 
-            <p class="demo-text">
-                Demonstration of a neuro-symbolic agent learning to
-                <em>cook an eggplant</em> and <em>clean a table</em> from
-                one-shot demonstrations by building on priors from foundation models and control policies.
-                The agent distills knowledge from a VLM to detect objects and actions, abstracts trajectory
-                checkpoints, reprojects them to novel objects via control policies, imitates low-level actions
-                using diffusion-based learning, and discovers symbolic operators and task abstractions via a
-                satisfiability solver.
-            </p>
-
-            <div class="media-grid">
-                <video autoplay loop muted playsinline>
-                    <source src="assets/eggplant1.mp4" type="video/mp4">
-                </video>
-                <video autoplay loop muted playsinline>
-                    <source src="assets/eggplant2.mp4" type="video/mp4">
-                </video>
-                <video autoplay loop muted playsinline>
-                    <source src="assets/table1.mp4" type="video/mp4">
-                </video>
-                <video autoplay loop muted playsinline>
-                    <source src="assets/table2.mp4" type="video/mp4">
-                </video>
+        <!-- Video Showcase 1: Forklift Warehouse -->
+        <div class="video-showcase">
+          <h3 class="video-showcase-title">Autonomous Forklift: Few-Shot Learning for Warehouse Logistics</h3>
+          <p class="video-showcase-description">
+            Demonstration of a neuro-symbolic agent that learns to load and unload at given locations using only 10 demonstrations. 
+            We use a satisfiability solver to discover symbolic operators and task abstractions, a VLM to detect objects and actions, 
+            and diffusion-based learning to imitate low-level actions. The system demonstrates robust performance across varying 
+            lighting conditions and cargo types.
+          </p>
+          
+          <div class="video-grid">
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/night_iphone_forklift.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">Night operation with iPhone cargo detection</div>
             </div>
-
-        </section>
-
-
-
-        <section id="publications" class="card" style="margin-top:16px">
-          <h2 class="section-title">Selected Publications</h2>
-
-          <!-- CoRL 2025 -->
-          <article class="pub" aria-labelledby="corl-title">
-            <div class="meta-block">
-              <h3 id="corl-title">Few-Shot Neuro-Symbolic Imitation Learning for Long-Horizon Planning and Acting <span class="badge published">CoRL 2025</span></h3>
-              <div class="byline">Pierrick Lorang, Hong Lu, Johannes Huemer, Patrik Zips, Matthias Scheutz</div>
-              <div class="venue">Conference on Robot Learning (CoRL), 2025</div>
-              <div class="actions">
-                <a href="https://arxiv.org/abs/2508.21501">PDF</a>
-                <a href="https://www.youtube.com/watch?v=E8slaN81oAA&t=6s">Video</a>
-              </div>
-
-              <p class="pub-desc">Imitation learning enables intelligent systems to acquire complex behaviors with minimal supervision, but existing methods often target short-horizon skills, require large datasets, and fail to generalize under distribution shifts. We propose a novel neuro-symbolic framework that jointly learns continuous control policies and symbolic domain abstractions from a handful of skill demonstrations. The method constructs a graph-based task abstraction, discovers symbolic rules using an Answer Set Programming solver, and trains diffusion-policy controllers for low-level actions. A high-level oracle filters task-relevant information to keep each controller focused on a minimal observation-action set. This graph-based abstraction captures non-spatial and temporal relations that clustering or purely data-driven techniques miss in limited-data regimes. We validate across six domains — multi-arm manipulation, stacking, kitchen, assembly, Towers of Hanoi, and an automated-forklift domain — demonstrating high data-efficiency (as few as five demonstrations), strong zero- and few-shot generalization, and interpretable decision-making.</p>
-                <div class="media-grid" style="margin-top:10px">
-                    <video autoplay loop muted playsinline>
-                        <source src="assets/corl_fewshot_demo1.mp4" type="video/mp4">
-                    </video>
-                    <video autoplay loop muted playsinline>
-                        <source src="assets/corl_fewshot_demo2.mp4" type="video/mp4">
-                    </video>
-                </div>
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/night_bag_forklift.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">Night operation handling bag-type cargo</div>
             </div>
-          </article>
-
-          <!-- IROS 2024 -->
-          <article class="pub" style="margin-top:12px" aria-labelledby="iros-title">
-            <div class="meta-block">
-              <h3 id="iros-title">A Framework for Neurosymbolic Goal-Conditioned Continual Learning in Open World Environments <span class="badge accepted">IROS 2024</span></h3>
-              <div class="byline">Pierrick Lorang, Shivam Goel, Yash Shukla, et al.</div>
-              <div class="venue">IEEE/RSJ IROS, 2024</div>
-              <div class="actions">
-                <a href="https://ieeexplore.ieee.org/abstract/document/10801627">PDF</a>
-              </div>
-
-              <p class="pub-desc">In dynamic open-world environments, agents face sudden and unpredictable novelties that hinder Task and Motion Planning. We propose a TAMP architecture that tightly integrates symbolic planning with reinforcement learning to enable autonomous adaptation without human guidance. The approach uses symbolic goal representations within a goal-conditioned learning framework and employs planner-guided goal identification to handle abrupt changes where traditional RL and re-planning fail. Sequential novelty-injection experiments demonstrate faster convergence and more robust long-horizon performance compared to standard baselines, illustrating the method's practical utility for real-world robotic systems.</p>
-                <div class="media-grid" style="margin-top:10px"></div>
-                <video autoplay loop muted playsinline>
-                    <source src="assets/iros_continual_demo.mp4" type="video/mp4">
-                </video>
-              </div>
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/day_iphone_forklift.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">Daylight operation with iPhone cargo</div>
             </div>
-          </article>
-
-          <!-- More papers condensed -->
-          <div style="margin-top:14px">
-
-              <div style="margin-bottom:10px">
-                <p style="margin:6px 0"><strong>Curiosity-Driven Imagination: Discovering Plan Operators and Learning Associated Policies for Open-World Adaptation</strong> — ICRA 2025 (preprint)</p>
-                <p class="pub-desc">Adapting quickly to dynamic, uncertain “open world” environments remains a major robotics challenge. We introduce a hybrid planning-and-learning system that pairs a learned stochastic low-level model (trained with an Intrinsic Curiosity Module to drive exploration) with a high-level symbolic planner that captures abstract transitions via operators. The agent plans in an "imaginary" symbolic space to generate reward machines and guide learning. In robotic manipulation tasks subject to sequential novelty injections, this curiosity-driven imagination approach converges faster and outperforms state-of-the-art hybrid TAMP methods, showing superior adaptability and data-efficiency.</p>
-                    <div class="actions">
-                        <a href="https://arxiv.org/abs/2503.04931">PDF</a>
-                    </div>
-              </div>
-
-              <div style="margin-bottom:10px">
-                <p style="margin:6px 0"><strong>Adapting to the "Open World": The Utility of Hybrid Hierarchical Reinforcement Learning and Symbolic Planning</strong> — ICRA 2024</p>
-                <p class="pub-desc">Open-world robotic tasks (e.g., autonomous driving) present unpredictable events that disrupt controllers. Neural RL methods struggle to adapt and suffer from catastrophic forgetting; hybrid planning+RL approaches help but adapt slowly. We propose an enhanced hybrid system with nested hierarchical action abstraction that reuses learned skills across abstraction levels and leverages symbolic planning to select and compose them efficiently. Experiments show faster adaptation, improved generalization, and greater robustness when multiple environmental novelties occur simultaneously, outperforming state-of-the-art RL and hybrid baselines.</p>
-                    <div class="actions">
-                        <a href="https://ieeexplore.ieee.org/abstract/document/10611594">PDF</a>
-                    </div>
-              </div>
-
-              <div style="margin-bottom:10px">
-                <p style="margin:6px 0"><strong>A Neurosymbolic Cognitive Architecture Framework for Handling Novelties in Open Worlds</strong> — Artificial Intelligence, 2024</p>
-                <p class="pub-desc">This journal article describes a large-scale neurosymbolic cognitive architecture that combines symbolic planning, counterfactual reasoning, reinforcement learning, and deep vision to detect and accommodate concealed novelties in Minecraft-like environments. The framework enables agents to maintain task performance despite unseen changes and is evaluated extensively on diverse novelty scenarios.</p>
-                    <div class="actions">
-                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S000437022400047X">PDF</a>
-                    </div>
-              </div>
-
-              <div style="margin-bottom:10px">
-                <p style="margin:6px 0"><strong>Speeding-up Continual Learning Through Information Gains in Novel Experiences</strong> — PRL Workshop at IJCAI-2022</p>
-                <p class="pub-desc">We introduce an information-gain-based signal to prioritize learning from novel experiences and speed up continual learning. By estimating the information contribution of unexpected transitions, agents focus updates on experiences that maximize learning progress and reduce catastrophic forgetting. Empirical results in simulated continual-learning scenarios show faster adaptation and improved retention compared to standard continual-RL baselines.</p>
-                    <div class="actions">
-                        <a href="https://prl-theworkshop.github.io/prl2022-ijcai/papers/PRL2022_paper_26.pdf">PDF</a>
-                    </div>
-              </div>
-
-              <hr />
-
-              <div style="margin-top:10px">
-                <p style="margin:6px 0"><strong>Comparing the Cost and Performance of Vision-Language-Action Models Against Classical Neuro-Symbolic Approaches</strong> — Adv. Robotics Research Journal, Under Review (2026)</p>
-                <p class="pub-desc">There is much excitement around Vision-Language-Action (VLA) models, but their suitability for structured, long-horizon robotic tasks remains unclear — especially given the large training and inference energy costs. This manuscript provides a rigorous empirical evaluation comparing a fine-tuned OpenPI VLA with a neuro-symbolic architecture that combines PDDL-based symbolic planning and diffusion-model controllers. Using a custom Towers-of-Hanoi benchmark in Robosuite, we measure success rate, training/fine-tuning time, inference time, and energy consumption across task variants. Results indicate that neuro-symbolic approaches achieve substantially higher task success while consuming orders-of-magnitude less energy, suggesting that energy-efficient symbolic methods remain critical for robotic applications.</p>
-              </div>
-
-              <div style="margin-top:10px">
-                <p style="margin:6px 0"><strong>Neuro-Symbolic Epistemic Agents for POMDP-Based Task Planning</strong> — ICAPS, Under Review (2026)</p>
-                <p class="pub-desc">We propose a neurosymbolic epistemic planning framework for POMDP-based task planning that integrates epistemic operators with reinforcement-learning-driven belief updates. The system discovers epistemic operators, maintains compact belief-state abstractions, and uses symbolic planning to guide targeted exploration and disambiguation under uncertainty. Experiments in multi-object manipulation POMDPs show improved sample efficiency and more robust task completion compared to baselines that lack explicit epistemic reasoning.</p>
-              </div>
-
-              <div style="margin-top:10px">
-                <p style="margin:6px 0"><strong>Build on Priors: Distilling Knowledge from Controls and Foundation Models for Efficient and Adaptive Neuro-Symbolic Architectures</strong> — IEEE RA-L, Under Review (2026)</p>
-                <p class="pub-desc">We present a hierarchical knowledge-distillation pipeline for neurosymbolic robotics that leverages priors from multiple layers: high-level symbolic reasoning, transformer-based perception, and low-level motion planners/controllers. By distilling these heterogeneous sources into compact neurosymbolic modules, the approach accelerates learning on real robots, improves adaptability, and preserves interpretability while benefiting from foundation-model perceptual features and established control policies.</p>
-              </div>
-
-              <hr />
-
-              <div style="margin-top:12px">
-                <p style="margin:6px 0"><strong>Integrating LLMs and Classical Planning for Pallet Logistics: A Case Study</strong> — IFAC, 2026</p>
-                <p class="pub-desc">Evaluation of LLMs as planners in a pallet logistics PDDL domain, proposing a hybrid pipeline where LLMs translate language into goal definitions and classical planners ensure executable, optimal plans.</p>
-                    <div class="actions">
-                        <a href="https://www.sciencedirect.com/science/article/pii/S2405896325016362">PDF</a>
-                    </div>
-              </div>
-
-              <div style="margin-top:12px">
-                <p style="margin:6px 0"><strong>Novelty Adaptation Through Hybrid LLM-Symbolic Planning and LLM-Guided RL</strong> — ICRA, Under Review (2026)</p>
-                <p class="pub-desc">A neurosymbolic system where an LLM proposes missing operators and reward scaffolds; symbolic planning generates plans while RL learns low-level controllers for newly discovered operators, showing improved novelty accommodation in tabletop manipulation domains.</p>
-              </div>
-
-              <div style="margin-top:12px">
-                <p style="margin:6px 0"><strong>Understanding and Explaining Vision-Language-Action Models Through Probing</strong> — In Preparation (2026)</p>
-                <p class="pub-desc">Probing OpenVLA representations to extract symbolic object and action states for integration into cognitive architectures. Experiments on LIBERO-spatial tasks show high probing accuracies and enable an integrated DIARC-OpenVLA system for interpretable real-time monitoring.</p>
-              </div>
-
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/day_bag_forklift.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">Daylight operation with varied cargo types</div>
             </div>
-        </section>
+          </div>
+        </div>
 
+        <!-- Video Showcase 2: Kitchen Tasks -->
+        <div class="video-showcase">
+          <h3 class="video-showcase-title">One-Shot Task Learning: Kitchen Manipulation</h3>
+          <p class="video-showcase-description">
+            Demonstration of a neuro-symbolic agent that learns to perform two distinct tasks using only one stacking demonstration —
+            <em>cook an eggplant</em> and <em>clean a table</em> — by building on priors from foundation models and control policies.
+            The agent distills knowledge from a VLM to detect objects and actions, abstracts trajectory checkpoints, reprojects them 
+            to novel objects via control policies, imitates low-level actions using diffusion-based learning, and discovers symbolic 
+            operators via a satisfiability solver.
+          </p>
+          
+          <div class="video-grid">
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/eggplant1.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">Cooking task: Eggplant preparation sequence</div>
+            </div>
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/eggplant2.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">Cooking task: Alternative execution path</div>
+            </div>
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/table1.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">Cleaning task: Table organization demonstration</div>
+            </div>
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/table2.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">Cleaning task: Object manipulation and placement</div>
+            </div>
+          </div>
+        </div>
 
-      </div>
+        <!-- Video Showcase 3: Navigation -->
+        <div class="video-showcase">
+          <h3 class="video-showcase-title">Hierarchical Navigation: Complex Dynamic Environments</h3>
+          <p class="video-showcase-description">
+            Demonstration of a neuro-symbolic agent that learns to navigate complex maps in different, dynamic environments using 
+            Hierarchical Planning and Hierarchical RL. We use a nested hierarchical framework which helps our agent accommodate 
+            novelties using a combination of symbolic planning and hierarchical RL, which allows it to reuse learned skills across 
+            abstraction levels and leverage symbolic planning to select and compose them efficiently. Achieved ~50× learning speedup 
+            compared to flat RL approaches, with strong generalization to novel maps and dynamics.
+          </p>
+          
+          <div class="video-grid">
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/night_iphone_forklift.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">Night navigation with dynamic obstacles</div>
+            </div>
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/night_bag_forklift.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">Adaptive path planning in low visibility</div>
+            </div>
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/day_iphone_forklift.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">Daylight complex environment traversal</div>
+            </div>
+            <div class="video-item">
+              <video autoplay loop muted playsinline>
+                <source src="assets/day_bag_forklift.mp4" type="video/mp4">
+              </video>
+              <div class="video-caption">Multi-objective navigation demonstration</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      </main>
+      <!-- Publications Section -->
+      <section id="publications">
+        <h2>Selected Publications</h2>
 
-    <footer>
-      <small>© 2025 Pierrick Lorang — Last updated: November 2025</small>
-    </footer>
-  </div>
+        <!-- CoRL 2025 -->
+        <article class="publication">
+          <h3 class="pub-title">
+            Few-Shot Neuro-Symbolic Imitation Learning for Long-Horizon Planning and Acting 
+            <span class="badge badge-published">CoRL 2025</span>
+          </h3>
+          <div class="pub-authors">Pierrick Lorang, Hong Lu, Johannes Huemer, Patrik Zips, Matthias Scheutz</div>
+          <div class="pub-venue">Conference on Robot Learning (CoRL), 2025</div>
+          
+          <p class="pub-description">
+            Imitation learning enables intelligent systems to acquire complex behaviors with minimal supervision, but existing methods 
+            often target short-horizon skills, require large datasets, and fail to generalize under distribution shifts. We propose a 
+            novel neuro-symbolic framework that jointly learns continuous control policies and symbolic domain abstractions from a 
+            handful of skill demonstrations. The method constructs a graph-based task abstraction, discovers symbolic rules using an 
+            Answer Set Programming solver, and trains diffusion-policy controllers for low-level actions. A high-level oracle filters 
+            task-relevant information to keep each controller focused on a minimal observation-action set. This graph-based abstraction 
+            captures non-spatial and temporal relations that clustering or purely data-driven techniques miss in limited-data regimes. 
+            We validate across six domains — multi-arm manipulation, stacking, kitchen, assembly, Towers of Hanoi, and an 
+            automated-forklift domain — demonstrating high data-efficiency (as few as five demonstrations), strong zero- and few-shot 
+            generalization, and interpretable decision-making.
+          </p>
+
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2508.21501" class="pub-link" target="_blank">📄 PDF</a>
+            <a href="https://www.youtube.com/watch?v=E8slaN81oAA&t=6s" class="pub-link" target="_blank">🎥 Video</a>
+          </div>
+
+          <div class="pub-video-grid">
+            <video autoplay loop muted playsinline>
+              <source src="assets/corl_fewshot_demo1.mp4" type="video/mp4">
+            </video>
+            <video autoplay loop muted playsinline>
+              <source src="assets/corl_fewshot_demo2.mp4" type="video/mp4">
+            </video>
+          </div>
+        </article>
+
+        <!-- IROS 2024 -->
+        <article class="publication">
+          <h3 class="pub-title">
+            A Framework for Neurosymbolic Goal-Conditioned Continual Learning in Open World Environments 
+            <span class="badge badge-accepted">IROS 2024</span>
+          </h3>
+          <div class="pub-authors">Pierrick Lorang, Shivam Goel, Yash Shukla, et al.</div>
+          <div class="pub-venue">IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2024</div>
+          
+          <p class="pub-description">
+            In dynamic open-world environments, agents face sudden and unpredictable novelties that hinder Task and Motion Planning. 
+            We propose a TAMP architecture that tightly integrates symbolic planning with reinforcement learning to enable autonomous 
+            adaptation without human guidance. The approach uses symbolic goal representations within a goal-conditioned learning 
+            framework and employs planner-guided goal identification to handle abrupt changes where traditional RL and re-planning fail. 
+            Sequential novelty-injection experiments demonstrate faster convergence and more robust long-horizon performance compared to 
+            standard baselines, illustrating the method's practical utility for real-world robotic systems.
+          </p>
+
+          <div class="pub-links">
+            <a href="https://ieeexplore.ieee.org/abstract/document/10801627" class="pub-link" target="_blank">📄 PDF</a>
+          </div>
+
+          <div style="margin-top: 16px;">
+            <video autoplay loop muted playsinline style="width: 100%; max-width: 600px; border-radius: 8px; border: 1px solid var(--card-border);">
+              <source src="assets/iros_continual_demo.mp4" type="video/mp4">
+            </video>
+          </div>
+        </article>
+
+        <div class="section-divider"></div>
+
+        <!-- Additional Publications - Compact Format -->
+        <h3 style="margin-bottom: 24px;">Additional Publications</h3>
+
+        <article class="publication pub-compact">
+          <h3 class="pub-title">
+            Curiosity-Driven Imagination: Discovering Plan Operators and Learning Associated Policies for Open-World Adaptation 
+            <span class="badge badge-preprint">ICRA 2025</span>
+          </h3>
+          <div class="pub-authors">Pierrick Lorang, et al.</div>
+          <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), 2025 (preprint)</div>
+          
+          <p class="pub-description">
+            Adapting quickly to dynamic, uncertain "open world" environments remains a major robotics challenge. We introduce a hybrid 
+            planning-and-learning system that pairs a learned stochastic low-level model (trained with an Intrinsic Curiosity Module to 
+            drive exploration) with a high-level symbolic planner that captures abstract transitions via operators. The agent plans in 
+            an "imaginary" symbolic space to generate reward machines and guide learning. In robotic manipulation tasks subject to 
+            sequential novelty injections, this curiosity-driven imagination approach converges faster and outperforms state-of-the-art 
+            hybrid TAMP methods, showing superior adaptability and data-efficiency.
+          </p>
+
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2503.04931" class="pub-link" target="_blank">📄 PDF</a>
+          </div>
+        </article>
+
+        <article class="publication pub-compact">
+          <h3 class="pub-title">
+            Adapting to the "Open World": The Utility of Hybrid Hierarchical Reinforcement Learning and Symbolic Planning 
+            <span class="badge badge-accepted">ICRA 2024</span>
+          </h3>
+          <div class="pub-authors">Pierrick Lorang, et al.</div>
+          <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA), 2024</div>
+          
+          <p class="pub-description">
+            Open-world robotic tasks (e.g., autonomous driving) present unpredictable events that disrupt controllers. Neural RL methods 
+            struggle to adapt and suffer from catastrophic forgetting; hybrid planning+RL approaches help but adapt slowly. We propose an 
+            enhanced hybrid system with nested hierarchical action abstraction that reuses learned skills across abstraction levels and 
+            leverages symbolic planning to select and compose them efficiently. Experiments show faster adaptation, improved 
+            generalization, and greater robustness when multiple environmental novelties occur simultaneously, outperforming 
+            state-of-the-art RL and hybrid baselines.
+          </p>
+
+          <div class="pub-links">
+            <a href="https://ieeexplore.ieee.org/abstract/document/10611594" class="pub-link" target="_blank">📄 PDF</a>
+          </div>
+        </article>
+
+        <article class="publication pub-compact">
+          <h3 class="pub-title">
+            A Neurosymbolic Cognitive Architecture Framework for Handling Novelties in Open Worlds 
+            <span class="badge badge-published">AI Journal 2024</span>
+          </h3>
+          <div class="pub-authors">Pierrick Lorang, et al.</div>
+          <div class="pub-venue">Artificial Intelligence, 2024</div>
+          
+          <p class="pub-description">
+            This journal article describes a large-scale neurosymbolic cognitive architecture that combines symbolic planning, 
+            counterfactual reasoning, reinforcement learning, and deep vision to detect and accommodate concealed novelties in 
+            Minecraft-like environments. The framework enables agents to maintain task performance despite unseen changes and is 
+            evaluated extensively on diverse novelty scenarios.
+          </p>
+
+          <div class="pub-links">
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S000437022400047X" class="pub-link" target="_blank">📄 PDF</a>
+          </div>
+        </article>
+
+        <article class="publication pub-compact">
+          <h3 class="pub-title">
+            Speeding-up Continual Learning Through Information Gains in Novel Experiences 
+            <span class="badge badge-accepted">IJCAI 2022</span>
+          </h3>
+          <div class="pub-authors">Pierrick Lorang, et al.</div>
+          <div class="pub-venue">PRL Workshop at IJCAI-2022</div>
+          
+          <p class="pub-description">
+            We introduce an information-gain-based signal to prioritize learning from novel experiences and speed up continual learning. 
+            By estimating the information contribution of unexpected transitions, agents focus updates on experiences that maximize 
+            learning progress and reduce catastrophic forgetting. Empirical results in simulated continual-learning scenarios show faster 
+            adaptation and improved retention compared to standard continual-RL baselines.
+          </p>
+
+          <div class="pub-links">
+            <a href="https://prl-theworkshop.github.io/prl2022-ijcai/papers/PRL2022_paper_26.pdf" class="pub-link" target="_blank">📄 PDF</a>
+          </div>
+        </article>
+
+        <article class="publication pub-compact">
+          <h3 class="pub-title">
+            Adapting to the "Open World": The Utility of Hybrid Hierarchical Reinforcement Learning and Symbolic Planning 
+            <span class="badge badge-accepted">ICRA DC 2025</span>
+          </h3>
+          <div class="pub-authors">Pierrick Lorang</div>
+          <div class="pub-venue">ICRA Doctoral Consortium, 2025</div>
+          
+          <p class="pub-description">
+            Doctoral consortium presentation of hybrid hierarchical RL and symbolic planning work, demonstrating faster adaptation and 
+            improved generalization in open-world scenarios with multiple simultaneous novelties.
+          </p>
+
+          <div class="pub-links">
+            <a href="https://ieeexplore.ieee.org/abstract/document/10611594" class="pub-link" target="_blank">📄 PDF</a>
+          </div>
+        </article>
+
+        <div class="section-divider"></div>
+
+        <h3 style="margin-bottom: 24px;">Under Review & In Preparation</h3>
+
+        <article class="publication pub-compact">
+          <h3 class="pub-title">
+            Comparing the Cost and Performance of Vision-Language-Action Models Against Classical Neuro-Symbolic Approaches 
+            <span class="badge badge-review">Under Review 2026</span>
+          </h3>
+          <div class="pub-authors">Pierrick Lorang, et al.</div>
+          <div class="pub-venue">Advanced Robotics Research Journal, Under Review (2026)</div>
+          
+          <p class="pub-description">
+            There is much excitement around Vision-Language-Action (VLA) models, but their suitability for structured, long-horizon 
+            robotic tasks remains unclear — especially given the large training and inference energy costs. This manuscript provides a 
+            rigorous empirical evaluation comparing a fine-tuned OpenPI VLA with a neuro-symbolic architecture that combines PDDL-based 
+            symbolic planning and diffusion-model controllers. Using a custom Towers-of-Hanoi benchmark in Robosuite, we measure success 
+            rate, training/fine-tuning time, inference time, and energy consumption across task variants. Results indicate that 
+            neuro-symbolic approaches achieve substantially higher task success while consuming orders-of-magnitude less energy, 
+            suggesting that energy-efficient symbolic methods remain critical for robotic applications.
+          </p>
+        </article>
+
+        <article class="publication pub-compact">
+          <h3 class="pub-title">
+            Neuro-Symbolic Epistemic Agents for POMDP-Based Task Planning 
+            <span class="badge badge-review">Under Review 2026</span>
+          </h3>
+          <div class="pub-authors">Pierrick Lorang, et al.</div>
+          <div class="pub-venue">ICAPS, Under Review (2026)</div>
+          
+          <p class="pub-description">
+            We propose a neurosymbolic epistemic planning framework for POMDP-based task planning that integrates epistemic operators 
+            with reinforcement-learning-driven belief updates. The system discovers epistemic operators, maintains compact belief-state 
+            abstractions, and uses symbolic planning to guide targeted exploration and disambiguation under uncertainty. Experiments in 
+            multi-object manipulation POMDPs show improved sample efficiency and more robust task completion compared to baselines that 
+            lack explicit epistemic reasoning.
+          </p>
+        </article>
+
+        <article class="publication pub-compact">
+          <h3 class="pub-title">
+            Build on Priors: Distilling Knowledge from Controls and Foundation Models for Efficient and Adaptive Neuro-Symbolic Architectures 
+            <span class="badge badge-review">Under Review 2026</span>
+          </h3>
+          <div class="pub-authors">Pierrick Lorang, et al.</div>
+          <div class="pub-venue">IEEE Robotics and Automation Letters (RA-L), Under Review (2026)</div>
+          
+          <p class="pub-description">
+            We present a hierarchical knowledge-distillation pipeline for neurosymbolic robotics that leverages priors from multiple 
+            layers: high-level symbolic reasoning, transformer-based perception, and low-level motion planners/controllers. By distilling 
+            these heterogeneous sources into compact neurosymbolic modules, the approach accelerates learning on real robots, improves 
+            adaptability, and preserves interpretability while benefiting from foundation-model perceptual features and established 
+            control policies.
+          </p>
+        </article>
+
+        <article class="publication pub-compact">
+          <h3 class="pub-title">
+            Integrating LLMs and Classical Planning for Pallet Logistics: A Case Study 
+            <span class="badge badge-published">IFAC 2026</span>
+          </h3>
+          <div class="pub-authors">Pierrick Lorang, et al.</div>
+          <div class="pub-venue">IFAC, 2026</div>
+          
+          <p class="pub-description">
+            Evaluation of LLMs as planners in a pallet logistics PDDL domain, proposing a hybrid pipeline where LLMs translate language 
+            into goal definitions and classical planners ensure executable, optimal plans.
+          </p>
+
+          <div class="pub-links">
+            <a href="https://www.sciencedirect.com/science/article/pii/S2405896325016362" class="pub-link" target="_blank">📄 PDF</a>
+          </div>
+        </article>
+
+        <article class="publication pub-compact">
+          <h3 class="pub-title">
+            Novelty Adaptation Through Hybrid LLM-Symbolic Planning and LLM-Guided RL 
+            <span class="badge badge-review">Under Review 2026</span>
+          </h3>
+          <div class="pub-authors">Pierrick Lorang, et al.</div>
+          <div class="pub-venue">ICRA, Under Review (2026)</div>
+          
+          <p class="pub-description">
+            A neurosymbolic system where an LLM proposes missing operators and reward scaffolds; symbolic planning generates plans while 
+            RL learns low-level controllers for newly discovered operators, showing improved novelty accommodation in tabletop 
+            manipulation domains.
+          </p>
+        </article>
+
+        <article class="publication pub-compact">
+          <h3 class="pub-title">
+            Understanding and Explaining Vision-Language-Action Models Through Probing 
+            <span class="badge badge-review">In Preparation 2026</span>
+          </h3>
+          <div class="pub-authors">Pierrick Lorang, et al.</div>
+          <div class="pub-venue">In Preparation (2026)</div>
+          
+          <p class="pub-description">
+            Probing OpenVLA representations to extract symbolic object and action states for integration into cognitive architectures. 
+            Experiments on LIBERO-spatial tasks show high probing accuracies and enable an integrated DIARC-OpenVLA system for 
+            interpretable real-time monitoring.
+          </p>
+        </article>
+
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact">
+        <div class="card">
+          <h2>Contact</h2>
+          <p class="lead">I'm always interested in discussing research collaborations, potential projects, and opportunities in neuro-symbolic AI and robotics.</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-top: 32px;">
+            <div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 12px;">Email</h3>
+              <a href="mailto:pierrick.lorang@gmail.com" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">pierrick.lorang@gmail.com</a>
+            </div>
+            <div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 12px;">Phone</h3>
+              <p style="color: var(--text-secondary);">+33 769 109 816</p>
+            </div>
+            <div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 12px;">Location</h3>
+              <p style="color: var(--text-secondary);">Tufts University, Medford, MA<br>Austrian Institute of Technology, Vienna</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 Pierrick Lorang — Last updated: November 2025</p>
+      <p style="margin-top: 8px; font-size: 0.85rem;">Ph.D. Candidate in Neuro-Symbolic Robotics</p>
+    </div>
+  </footer>
+
 </body>
 </html>
